@@ -145,16 +145,19 @@ export type Klass = { name: string; ages: string; days: Day[]; start: number; en
 const t = (h: number, m = 0) => h * 60 + m
 export const CLASSES: Klass[] = [
   { name: 'Tiny BJJ', ages: '4–6 yrs', days: ['Tue', 'Thu'], start: t(16, 30), end: t(17, 15), program: 'kids-brazilian-jiu-jitsu', kind: 'kids' },
-  { name: 'Little BJJ', ages: '6–8 yrs', days: ['Mon', 'Wed', 'Fri'], start: t(16, 30), end: t(17, 15), program: 'kids-brazilian-jiu-jitsu', kind: 'kids' },
-  { name: 'Youth BJJ', ages: '9–11 yrs', days: ['Mon', 'Wed', 'Fri'], start: t(17, 30), end: t(18, 30), program: 'kids-brazilian-jiu-jitsu', kind: 'kids' },
+  { name: 'Little BJJ', ages: '6–8 yrs', days: ['Mon', 'Fri'], start: t(16, 30), end: t(17, 15), program: 'kids-brazilian-jiu-jitsu', kind: 'kids' },
+  { name: 'Little BJJ No-Gi', ages: '6–8 yrs', days: ['Wed'], start: t(16, 30), end: t(17, 15), program: 'kids-brazilian-jiu-jitsu', kind: 'kids' },
+  { name: 'Youth BJJ', ages: '9–11 yrs', days: ['Mon', 'Fri'], start: t(17, 30), end: t(18, 30), program: 'kids-brazilian-jiu-jitsu', kind: 'kids' },
+  { name: 'Youth BJJ No-Gi', ages: '9–11 yrs', days: ['Wed'], start: t(17, 30), end: t(18, 30), program: 'kids-brazilian-jiu-jitsu', kind: 'kids' },
   { name: 'Junior BJJ', ages: '12–15 yrs', days: ['Tue', 'Thu'], start: t(17, 30), end: t(18, 30), program: 'kids-brazilian-jiu-jitsu', kind: 'kids' },
-  { name: 'Junior BJJ', ages: '12–15 yrs', days: ['Fri'], start: t(18, 45), end: t(19, 45), program: 'kids-brazilian-jiu-jitsu', kind: 'kids' },
+  { name: 'Junior BJJ No-Gi', ages: '12–15 yrs', days: ['Wed'], start: t(18, 45), end: t(19, 45), program: 'kids-brazilian-jiu-jitsu', kind: 'kids' },
   { name: 'Box Fitness', ages: 'Adults', days: ['Mon', 'Wed', 'Fri'], start: t(17, 30), end: t(18, 30), program: 'box-fitness', kind: 'other' },
   { name: 'Capoeira', ages: 'All ages', days: ['Tue', 'Thu'], start: t(17, 30), end: t(18, 30), program: 'capoeira', kind: 'other' },
   { name: 'Adult Novice BJJ', ages: '16+', days: ['Tue', 'Thu'], start: t(18, 45), end: t(19, 45), program: 'adult-brazilian-jiu-jitsu', kind: 'adults' },
   { name: 'Adult Intermediate BJJ', ages: '16+', days: ['Mon', 'Fri'], start: t(18, 45), end: t(19, 45), program: 'adult-brazilian-jiu-jitsu', kind: 'adults' },
   { name: 'Judo', ages: '12+ yrs', days: ['Tue', 'Thu'], start: t(18, 45), end: t(19, 45), program: 'judo', kind: 'other' },
-  { name: 'Adult Advanced BJJ', ages: '16+', days: ['Tue', 'Wed', 'Thu'], start: t(20), end: t(21), program: 'adult-brazilian-jiu-jitsu', kind: 'adults' },
+  { name: 'Adult Advanced BJJ', ages: '16+', days: ['Tue', 'Thu'], start: t(20), end: t(21), program: 'adult-brazilian-jiu-jitsu', kind: 'adults' },
+  { name: 'Adult Advanced BJJ No-Gi', ages: '16+', days: ['Wed'], start: t(20), end: t(21), program: 'adult-brazilian-jiu-jitsu', kind: 'adults' },
 ]
 export const DAYS: Day[] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 export const DAY_LONG: Record<Day, string> = { Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday' }
@@ -262,14 +265,14 @@ export type Lesson = { name: string; ages: string; when: string; text: string }
 export const LESSONS: Record<string, Lesson[]> = {
   'kids-brazilian-jiu-jitsu': [
     { name: 'Tiny BJJ', ages: 'Ages 4–6', when: 'Tue · Thu, 4:30 PM', text: 'The first steps on the mat: balance, movement and listening, taught through games built for the little ones.' },
-    { name: 'Little BJJ', ages: 'Ages 6–8', when: 'Mon · Wed · Fri, 4:30 PM', text: "Fundamentals with structure: stance, escapes and control, with Professor Cristyan's methodology for kids." },
-    { name: 'Youth BJJ', ages: 'Ages 9–11', when: 'Mon · Wed · Fri, 5:30 PM', text: 'Technique, partner drills and controlled live training, with stripes earned class after class.' },
-    { name: 'Junior BJJ', ages: 'Ages 12–15', when: 'Tue · Thu 5:30 PM, Fri 6:45 PM', text: 'Teen training: real grappling, conditioning and, for those who want it, the competition team.' },
+    { name: 'Little BJJ', ages: 'Ages 6–8', when: 'Mon · Wed (No-Gi) · Fri, 4:30 PM', text: "Fundamentals with structure: stance, escapes and control, with Professor Cristyan's methodology for kids." },
+    { name: 'Youth BJJ', ages: 'Ages 9–11', when: 'Mon · Wed (No-Gi) · Fri, 5:30 PM', text: 'Technique, partner drills and controlled live training, with stripes earned class after class.' },
+    { name: 'Junior BJJ', ages: 'Ages 12–15', when: 'Tue · Thu 5:30 PM, Wed (No-Gi) 6:45 PM', text: 'Teen training: real grappling, conditioning and, for those who want it, the competition team.' },
   ],
   'adult-brazilian-jiu-jitsu': [
     { name: 'Novice', ages: '16+', when: 'Tue · Thu, 6:45 PM', text: 'Where every adult starts: the fundamentals, step by step, no experience needed.' },
     { name: 'Intermediate', ages: '16+', when: 'Mon · Fri, 6:45 PM', text: 'Once the basics are in place: positional training and more live rolling.' },
-    { name: 'Advanced', ages: '16+', when: 'Tue · Wed · Thu, 8:00 PM', text: 'For experienced students: advanced technique, gi and no-gi, and harder rounds.' },
+    { name: 'Advanced', ages: '16+', when: 'Tue · Wed (No-Gi) · Thu, 8:00 PM', text: 'For experienced students: advanced technique, gi and no-gi, and harder rounds.' },
   ],
   'womens-self-defense-and-fitness': [
     { name: "Women's Self-Defense & Fitness", ages: 'Women, all levels', when: 'Ask for the next class', text: 'Escapes from grabs and holds, ground defense and a full-body workout, in a welcoming class.' },
