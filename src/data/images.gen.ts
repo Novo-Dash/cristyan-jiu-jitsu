@@ -90,7 +90,7 @@ export const IMG = {
     "h": 488,
     "sm": 480
   },
-  "judo_throw": {
+  "judo_throw_2": {
     "w": 1400,
     "h": 930,
     "sm": 800

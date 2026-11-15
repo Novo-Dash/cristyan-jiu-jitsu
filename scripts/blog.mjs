@@ -17,7 +17,7 @@ const COVERS = { '2026-boston-fall-international-open': 'boston_fall_open_2026_t
 // the other posts had one generic picture on the old site: each gets a real academy photo, picked by
 // its subject and rotated so neighbours never repeat (a grid of identical blocks reads as a template)
 const BY_TOPIC = [
-  [/capoeira/, ['capoeira_1', 'capoeira']], [/judo/, ['judo_throw', 'judo_1']], [/box/, ['boxing', 'box_1']],
+  [/capoeira/, ['capoeira_1', 'capoeira']], [/judo/, ['judo_throw_2', 'judo_1']], [/box/, ['boxing', 'box_1']],
   [/women/, ['women_2', 'women_1']], [/kid|teen|family|adhd|focus|parent/, ['kids_2', 'kids', 'kids_1', 'prof_1']],
   [/self-defense|safe|injur/, ['women_1', 'adult_2', 'judo_1']],
 ]
