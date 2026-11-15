@@ -133,7 +133,7 @@ export const PROGRAMS: Program[] = [
     learn: { intro: 'The fundamentals that make Judo one of the most effective martial arts:', items: ['Breakfalls and safety (ukemi)', 'Fundamental throws and takedowns', 'Balance, timing and leverage', 'Grip fighting and stand-up control', 'Pins, ground control and submissions', 'Practical self-defense'] },
     gets: { title: 'Fitness and mental discipline', intro: 'A full-body workout that trains the mind too. Classes help you:', items: ['Build functional strength and power', 'Improve balance and body control', 'Increase agility', 'Develop endurance', 'Sharpen focus and resilience'] },
     classes: ['Judo'],
-    photo: img('judo_2', 'A Judo throw in a dark training hall'),
+    photo: img('judo_throw', 'A Judo throw on the mat at Cristyan Jiu-Jitsu'),
     photo2: img('judo_1', 'Two judoka in white and blue gis mid-throw'),
     tuition: '$149 /mo',
   },
@@ -362,7 +362,7 @@ export const VALUES = {
     { word: 'Community', line: '166 students, kids and adults, on one mat in Hyannis.', photo: img('hero', 'The whole academy together on the mats') },
     { word: 'Honor', line: 'Wearing the academy name at the Boston Fall Open 2026.', photo: img('boston_fall_open_2026_team', 'The competition team at the Boston Fall Open 2026') },
     { word: 'Humble', line: 'Two world titles on the wall. On the mat, he is simply Professor.', photo: img('prof_2', 'Professor Cristyan in front of his medals and title belts') },
-    { word: 'Passion', line: 'Jiu-jitsu, Judo, Capoeira and boxing. One roof, four arts.', photo: img('judo_2', 'A judo throw in mid-air') },
+    { word: 'Passion', line: 'Jiu-jitsu, Judo, Capoeira and boxing. One roof, four arts.', photo: img('judo_throw', 'A Judo throw on the mat at Cristyan Jiu-Jitsu') },
     { word: 'Progress', line: 'Every stripe has a number behind it, so parents know where their kid stands.', photo: img('boston_fall_open_2026_kids', 'Kids from the academy with their medals') },
     { word: 'Inclusion', line: "From age 4 to adults, with a women's self-defense class of its own.", photo: img('women_2', 'A woman practicing a jiu-jitsu escape') },
   ],
@@ -381,7 +381,7 @@ export const TRACKS: Track[] = [
     photo: img('kids', 'The kids team of Cristyan Jiu-Jitsu in front of the academy logo'), programs: ['kids-brazilian-jiu-jitsu'] },
   { slug: 'judo-capoeira-box-fitness', name: 'Judo, Capoeira & Box Fitness', short: 'Judo, Capoeira & Box', tag: 'Teens and adults · three more arts', audience: 'adults',
     lead: 'Three more ways to train under one roof in Hyannis, MA: Teen and Adult Judo, Capoeira for all ages and Box Fitness, each with its own instructor.',
-    photo: img('judo_2', 'A judo throw in mid-air'), programs: ['judo', 'capoeira', 'box-fitness'] },
+    photo: img('judo_throw', 'A Judo throw on the mat at Cristyan Jiu-Jitsu'), programs: ['judo', 'capoeira', 'box-fitness'] },
 ]
 export type ClassCard = Lesson & { id: string; program: string; track: string; audience: 'kids' | 'adults'; photo: ReturnType<typeof img>; chips: string[]; fit: string; slot?: string }
 const CLASS_X: Record<string, { photo: ReturnType<typeof img>; chips: string[]; fit: string; slot?: string }> = {
