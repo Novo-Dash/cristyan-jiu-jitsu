@@ -6,6 +6,7 @@ import { ScrollTrigger } from './lib/gsap'
 import { scrollToTarget, startLenis } from './lib/lenis'
 import { motionOK } from './lib/motion'
 import { useBooking } from './nd'
+import { fbTrack, gaTrack } from './nd/tracking'
 import type { Route } from './routes'
 
 /** The shell of every page: skip link, nav, the page, footer. Lenis smooth scroll on desktop-class
@@ -15,6 +16,9 @@ export default function App({ route }: { route: Route }) {
   useEffect(() => {
     const stopLenis = motionOK() && matchMedia('(pointer: fine)').matches ? startLenis() : () => {}
     const onClick = (e: MouseEvent) => {
+      // a tap on the phone number is a lead for the campaign: one event each to Meta and GA4 (no-ops without ids)
+      const tel = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="tel:"]')
+      if (tel) { fbTrack({ custom: 'ClickToCall' }); gaTrack('click_to_call', { link_url: tel.href }); return }
       const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]')
       const id = a?.getAttribute('href')
       if (!a || !id || id === '#') return
