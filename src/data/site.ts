@@ -346,12 +346,12 @@ export const DAYLINE = {
   bands: [
     { t: 'Kids', d: 'Tiny and Little BJJ', from: t(16, 30), to: t(17, 15) },
     { t: 'Kids, teens, fitness', d: 'Youth and Junior BJJ, Capoeira, Box Fitness', from: t(17, 30), to: t(18, 30) },
-    { t: 'Adults and Judo', d: 'Novice, Intermediate and Advanced BJJ, Judo', from: t(18, 45), to: t(21) },
+    { t: 'Adults and Judo', d: 'Novice, Intermediate and Advanced BJJ, Judo · Wed: Junior No-Gi', from: t(18, 45), to: t(21) },
   ],
 }
 export const KNOW = [
   { k: '01', t: 'Kids first, adults later', d: 'Kids from 4:30 PM, teens from 5:30 PM, adults from 6:45 PM until 9:00 PM.' },
-  { k: '02', icon: 'cal', t: 'Monday to Friday', d: 'Saturday and Sunday the academy is closed.' },
+  { k: '02', icon: 'cal', t: 'Monday to Friday', d: 'Wednesday is No-Gi day for every BJJ class. Saturday and Sunday the academy is closed.' },
   { k: '03', icon: 'check', t: 'Every class takes a trial', d: 'Pick any class on the board and book your free trial in it.' },
   { k: '04', icon: 'group', t: 'One on one, if you prefer', d: 'Ask for a 30-minute private trial class instead of a group class.' },
 ]
