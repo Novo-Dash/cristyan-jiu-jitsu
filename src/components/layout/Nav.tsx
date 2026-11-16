@@ -8,7 +8,7 @@ import { Icon } from '../ui/Icon'
  * (black over the dark ones, data-nav="dark"; white over the light ones). No booking button in the
  * nav (every page carries it in the hero and at the end). Phones: a menu button opens the full menu.
  */
-export function Nav({ path }: { path: string }) {
+export function Nav({ path, bare }: { path: string; bare?: boolean }) {
   const ref = useRef<HTMLElement>(null)
   const [light, setLight] = useState(false)
   const [open, setOpen] = useState(false)
@@ -35,11 +35,15 @@ export function Nav({ path }: { path: string }) {
   return (
     <header className={`nav${light && !open ? ' is-light' : ''}${open ? ' is-open' : ''}`} ref={ref}>
       <div className="nav__in">
-        <a className="nav__logo" href="/" aria-label={`${SITE.name}, home`}>
-          <img className="nav__lg nav__lg--w" src={SITE.logoWhite.src} width={SITE.logoWhite.w} height={SITE.logoWhite.h} alt={SITE.name} />
-          <img className="nav__lg nav__lg--k" src={SITE.logo.src} width={SITE.logo.w} height={SITE.logo.h} alt="" aria-hidden="true" fetchPriority="low" />
-        </a>
-        <nav className="nav__links" aria-label="Main">
+        {/* a landing page keeps the visit: the logo is not a link and there are no site links (bare) */}
+        {(() => {
+          const logos = <>
+            <img className="nav__lg nav__lg--w" src={SITE.logoWhite.src} width={SITE.logoWhite.w} height={SITE.logoWhite.h} alt={SITE.name} />
+            <img className="nav__lg nav__lg--k" src={SITE.logo.src} width={SITE.logo.w} height={SITE.logo.h} alt="" aria-hidden="true" fetchPriority="low" />
+          </>
+          return bare ? <span className="nav__logo">{logos}</span> : <a className="nav__logo" href="/" aria-label={`${SITE.name}, home`}>{logos}</a>
+        })()}
+        {bare ? null : <nav className="nav__links" aria-label="Main">
           {NAV.map((l) => l.href === '/programs' ? (
             <div key={l.href} className={`nav__dd${dd ? ' is-open' : ''}`}
               onPointerEnter={(e) => { if (e.pointerType === 'mouse') ddOpen() }} onPointerLeave={(e) => { if (e.pointerType === 'mouse') ddClose() }}
@@ -48,13 +52,13 @@ export function Nav({ path }: { path: string }) {
               <div className="nav__panel"><TrackTabs variant="menu" /></div>
             </div>
           ) : <a key={l.href} href={l.href} aria-current={on(l.href) ? 'page' : undefined}>{l.label}</a>)}
-        </nav>
-        <a className="nav__tel" href={SITE.phone.tel} aria-label={`Call ${SITE.phone.display}`}><Icon name="phone" /><span>{SITE.phone.display}</span></a>
-        <button type="button" className="nav__menu" aria-expanded={open} aria-controls="menu" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen((o) => !o)}>
+        </nav>}
+        <a className={`nav__tel${bare ? ' nav__tel--lp' : ''}`} href={SITE.phone.tel} aria-label={`Call ${SITE.phone.display}`}><Icon name="phone" /><span>{SITE.phone.display}</span></a>
+        {bare ? null : <button type="button" className="nav__menu" aria-expanded={open} aria-controls="menu" aria-label={open ? 'Close menu' : 'Open menu'} onClick={() => setOpen((o) => !o)}>
           <Icon name={open ? 'close' : 'menu'} />
-        </button>
+        </button>}
       </div>
-      <div className="menu" id="menu" hidden={!open} data-nav="dark">
+      {bare ? null : <div className="menu" id="menu" hidden={!open} data-nav="dark">
         <nav aria-label="Menu">
           <a href="/" aria-current={path === '/' ? 'page' : undefined}>Home</a>
           {NAV.map((l) => [
@@ -64,7 +68,7 @@ export function Nav({ path }: { path: string }) {
         </nav>
         <a className="cta menu__cta" href="#book" onClick={() => setOpen(false)}><span>{CTA}</span></a>
         <a className="menu__tel" href={SITE.phone.tel}><Icon name="phone" />{SITE.phone.display}</a>
-      </div>
+      </div>}
     </header>
   )
 }

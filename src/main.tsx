@@ -15,6 +15,6 @@ const isBook = path === '/book'
 const route = routeOf(path) ?? ROUTES[0]
 const app = isBook
   ? <StrictMode><BookPage /></StrictMode>
-  : <StrictMode><BookingProvider><App route={route} /></BookingProvider></StrictMode>
+  : <StrictMode><BookingProvider copy={route.lp?.book}><App route={route} /></BookingProvider></StrictMode>
 if (root.firstElementChild && !isBook && routeOf(path)) hydrateRoot(root, app)
 else { root.textContent = ''; createRoot(root).render(app) }

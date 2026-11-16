@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, type ReactNode } from 'react'
 import { HERO, SITE } from '../../data/site'
 import type { Img } from '../../data/img'
 import { gsap, lines, useGSAP } from '../../lib/gsap'
@@ -14,6 +14,8 @@ type Props = {
   // cut everyone's head on /instructors); phones keep `photo`
   wide?: { photo: Img; pos?: string }
   crumbs?: { label: string; href: string }[]; second?: { label: string; href: string }; audience?: 'kids' | 'adults'
+  // a landing page (/free-class): its own button label, its own line under the button and its own media frame
+  cta?: string; proof?: ReactNode; media?: ReactNode; className?: string
 }
 
 /**
@@ -23,7 +25,7 @@ type Props = {
  * right after the hero). Phones: the photo is a band at the top of the card and the text sits below it on
  * the ink, never over faces, the button on the first screen.
  */
-export function Hero({ eyebrow, title, sub, photo, home, pos = '50% 45%', wide, crumbs, second, audience }: Props) {
+export function Hero({ eyebrow, title, sub, photo, home, pos = '50% 45%', wide, crumbs, second, audience, cta, proof, media, className }: Props) {
   const root = useRef<HTMLElement>(null)
   useGSAP(() => {
     if (!motionOK()) return
@@ -39,7 +41,7 @@ export function Hero({ eyebrow, title, sub, photo, home, pos = '50% 45%', wide, 
   }, { scope: root })
 
   return (
-    <section className={`hc${home ? ' hc--home' : ''}`} ref={root} aria-labelledby="h1">
+    <section className={`hc${home ? ' hc--home' : ''}${className ? ` ${className}` : ''}`} ref={root} aria-labelledby="h1">
       <div className="hc__card" data-nav="dark">
         <div className="hc__bg" aria-hidden="true">
           {wide ? (
@@ -58,19 +60,21 @@ export function Hero({ eyebrow, title, sub, photo, home, pos = '50% 45%', wide, 
                 {crumbs.map((c) => <a key={c.href} href={c.href}>{c.label}</a>)}
               </nav>
             ) : null}
-            <p className="tag tag--l">{eyebrow}</p>
+            {eyebrow ? <p className="tag tag--l">{eyebrow}</p> : null}
             <h1 className={`t ${home ? 't-hero' : 't-1'}`} id="h1"><TitleText title={title} /></h1>
             <p className="hc__sub">{sub}</p>
             <div className="hc__acts">
-              <Cta id={home ? 'heroCta' : undefined} audience={audience} />
+              <Cta id={home ? 'heroCta' : undefined} audience={audience} label={cta} />
               {second ? <Ghost href={second.href} className="ghost--l">{second.label}</Ghost> : null}
             </div>
-            <a className="proof" href={SITE.google.url} target="_blank" rel="noopener">
-              <span className="proof__stars" aria-hidden="true">{[0, 1, 2, 3, 4].map((i) => <Icon key={i} name="star" />)}</span>
-              <span><b>{SITE.google.rating}</b> on Google · {SITE.google.count} reviews</span>
-            </a>
+            {proof !== undefined ? proof : (
+              <a className="proof" href={SITE.google.url} target="_blank" rel="noopener">
+                <span className="proof__stars" aria-hidden="true">{[0, 1, 2, 3, 4].map((i) => <Icon key={i} name="star" />)}</span>
+                <span><b>{SITE.google.rating}</b> on Google · {SITE.google.count} reviews</span>
+              </a>
+            )}
           </div>
-          {home ? (
+          {media ?? (home ? (
             // [CONFIRMAR VSL iContent] the frame for the sales video the client is producing with iContent;
             // the poster stands in until the file arrives, then this becomes a click-to-play facade.
             <figure className="hc__vsl" aria-label={HERO.vsl.label}>
@@ -78,7 +82,7 @@ export function Hero({ eyebrow, title, sub, photo, home, pos = '50% 45%', wide, 
               <span className="hc__play" aria-hidden="true"><i /></span>
               <figcaption><b>{HERO.vsl.title}</b><span>{HERO.vsl.note}</span></figcaption>
             </figure>
-          ) : null}
+          ) : null)}
         </div>
       </div>
     </section>

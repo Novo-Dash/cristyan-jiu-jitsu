@@ -6,6 +6,8 @@ import { useGSAP } from '@gsap/react'
 // One registration for the whole page (PRD 0.2). Sections animate inside useGSAP, which wraps
 // gsap.context() and reverts on unmount.
 gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP)
+// phones run pinned scenes too (/lp, 16/11): the address bar showing and hiding must not re-measure them mid-scroll
+ScrollTrigger.config({ ignoreMobileResize: true })
 
 export { gsap, ScrollTrigger, SplitText, useGSAP }
 

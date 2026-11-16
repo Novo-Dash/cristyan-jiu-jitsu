@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Footer } from './components/layout/Footer'
+import { LpFooter } from './components/lp/Closing'
 import { Nav } from './components/layout/Nav'
 import { ScrollTrigger } from './lib/gsap'
 import { scrollToTarget, startLenis } from './lib/lenis'
@@ -32,9 +33,9 @@ export default function App({ route }: { route: Route }) {
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
-      <Nav path={route.path} />
+      <Nav path={route.path} bare={!!route.lp} />
       <main id="main">{route.page()}</main>
-      <Footer />
+      {route.lp && !route.lp.siteFooter ? <LpFooter /> : <Footer />}
     </>
   )
 }

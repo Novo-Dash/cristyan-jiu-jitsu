@@ -455,7 +455,7 @@ html.menu-open{overflow:hidden}
 @media (min-width:1000px){.board{display:block}}
 .board table{width:100%;border-collapse:collapse;table-layout:fixed}
 .board thead th{padding:16px 12px;background:var(--r-btn);color:var(--w);text-align:left;font:800 15px/1 var(--f-d);font-stretch:108%;text-transform:uppercase;letter-spacing:.02em;border-left:1px solid rgba(255,255,255,.18)}
-.board thead th:first-child{width:96px;background:var(--k);font:700 12px var(--f-b);letter-spacing:.1em;color:var(--mute-d);border-left:0}
+.board thead th:first-child{width:96px;font:700 12px var(--f-b);letter-spacing:.1em;border-left:0}
 .board thead th small{display:inline-block;margin-left:8px;padding:3px 8px;background:var(--w);color:var(--r-btn);font:800 11px/1.2 var(--f-b);letter-spacing:.06em;vertical-align:middle}
 .board thead th.today{background:var(--r-deep)}
 .board tbody th{padding:14px 12px;font-size:13px;font-weight:700;color:var(--mute);text-align:left;vertical-align:top;white-space:nowrap;border-bottom:1px solid var(--p-2)}
@@ -548,13 +548,8 @@ html.menu-open{overflow:hidden}
 .foot{position:relative;background:var(--k);color:var(--w);overflow:hidden}
 .find{position:relative;isolation:isolate;overflow:hidden;padding:clamp(80px,calc(11vh / var(--zs,1)),130px) 0 clamp(90px,calc(13vh / var(--zs,1)),150px)}
 .find__map{position:absolute;inset:0;z-index:-1;background:var(--k-2)}
-.find__map iframe{position:absolute;left:-12%;top:-160px;width:124%;height:calc(100% + 160px);border:0;pointer-events:none;filter:invert(.92) hue-rotate(180deg) grayscale(1) contrast(.92) brightness(.8)}
+.find__map iframe{position:absolute;left:-12%;top:-160px;width:124%;max-width:none;height:calc(100% + 160px);border:0;pointer-events:none;filter:invert(.92) hue-rotate(180deg) grayscale(1) contrast(.92) brightness(.8)}
 .find__shade{position:absolute;inset:0;background:linear-gradient(180deg,var(--k) 0%,rgba(13,13,15,.55) 26%,rgba(13,13,15,0) 52%),linear-gradient(0deg,var(--k) 0%,rgba(13,13,15,.45) 18%,rgba(13,13,15,0) 42%),linear-gradient(90deg,rgba(13,13,15,.6),transparent 14%,transparent 86%,rgba(13,13,15,.6))}
-.find__pin{position:absolute;left:50%;top:calc(50% - 80px);width:0;height:0;color:var(--r);--mark-cut:var(--k)}
-.find__pin svg{position:absolute;left:-22px;top:-22px;width:44px;height:44px;max-width:none;filter:drop-shadow(0 8px 14px rgba(0,0,0,.6))}
-.find__pin i{position:absolute;left:-14px;top:-14px;width:28px;height:28px;border:2px solid var(--r);transform:rotate(45deg);opacity:0;animation:ping 3s cubic-bezier(.2,.6,.3,1) infinite}
-.find__pin i + i{animation-delay:1.5s}
-@keyframes ping{0%{transform:rotate(45deg) scale(.6);opacity:.9}100%{transform:rotate(45deg) scale(4);opacity:0}}
 .find__head{display:grid;justify-items:center;text-align:center;margin-bottom:clamp(40px,calc(6vh / var(--zs,1)),70px)}
 .find__head p{margin-top:16px;max-width:52ch;color:rgba(255,255,255,.72)}
 .find__grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr) minmax(0,380px);align-items:end;gap:16px;min-height:clamp(380px,calc(46vh / var(--zs,1)),480px)}
@@ -594,7 +589,6 @@ html.menu-open{overflow:hidden}
   .find__map{position:relative;order:2;inset:auto;height:min(78vw,340px);margin:0 var(--gr) 14px var(--gl);overflow:hidden;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
   .find__map iframe{left:0;top:-130px;width:100%;height:calc(100% + 260px)}
   .find__shade{background:linear-gradient(0deg,rgba(13,13,15,.35),transparent 40%)}
-  .find__pin{top:50%}
   .find__grid{order:3;margin:0 var(--gr) 0 var(--gl);grid-template-columns:1fr;min-height:0}
   .find__card{grid-column:1;order:1}.find__ph{grid-column:1;order:2}
 }
@@ -971,7 +965,7 @@ html.menu-open{overflow:hidden}
 @media (min-width:1600px){.shell,.nav__in,.menu{zoom:var(--z,1);--zs:var(--z,1)}}
 
 /* ── reduced motion: nothing hides, nothing moves ── */
-.still .cta::after,.still .find__pin i{animation:none}
+.still .cta::after{animation:none}
 .still .iv__win,.still .gw__room{clip-path:none!important}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}
 
@@ -979,5 +973,3 @@ html.menu-open{overflow:hidden}
 @media (max-width:380px){.cta{height:auto;min-height:var(--h);white-space:normal;padding-block:6px}}
 
 /* The one point on the map, with the academy logo beside it (client, 13/11/2026). */
-.find__lbl{position:absolute;left:30px;top:-19px;display:flex;align-items:center;height:38px;padding:0 12px;background:var(--k);box-shadow:0 8px 18px rgba(0,0,0,.5);white-space:nowrap}
-.find__lbl img{display:block;width:auto;height:24px;max-width:none}

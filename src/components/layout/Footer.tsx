@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { CTA, NAV, SITE, TRACKS } from '../../data/site'
 import { img } from '../../data/img'
 import { Icon } from '../ui/Icon'
-import { Mark } from '../ui/Mark'
 import { Photo } from '../ui/Photo'
 
 // [CONFIRMAR] a photo of the storefront for this card; until then the training floor
@@ -29,7 +28,6 @@ export function Footer() {
         <div className="find__map" aria-hidden="true">
           {near && <iframe title={`Map: ${SITE.academy}, ${SITE.address.line}`} src={SITE.maps.embed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" tabIndex={-1} />}
           <span className="find__shade" />
-          <span className="find__pin"><i /><i /><Mark /><span className="find__lbl"><img src={SITE.logoWhite.src} width={SITE.logoWhite.w} height={SITE.logoWhite.h} alt="" /></span></span>
         </div>
         <div className="shell find__in">
           <div className="find__head">
@@ -63,7 +61,6 @@ export function Footer() {
           <div className="foot__social">
             <a href={SITE.social.instagram} target="_blank" rel="noopener" aria-label="Instagram"><Icon name="ig" /></a>
             <a href={SITE.social.facebook} target="_blank" rel="noopener" aria-label="Facebook"><Icon name="fb" /></a>
-            <a href={SITE.social.youtube} target="_blank" rel="noopener" aria-label="YouTube"><Icon name="yt" /></a>
           </div>
         </div>
         <nav className="foot__col" aria-label="Programs">

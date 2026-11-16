@@ -1,6 +1,7 @@
 import { Accordion as Base } from '@base-ui/react/accordion'
+import type { ReactNode } from 'react'
 
-type Item = { q: string; a: string }
+type Item = { q: string; a: ReactNode }
 
 /**
  * The FAQ on Base UI's unstyled primitive (aria-expanded, keyboard, height var):

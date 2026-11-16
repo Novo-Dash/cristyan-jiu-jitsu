@@ -9,5 +9,5 @@ import { ROUTES, routeOf } from './routes'
 export { ROUTES }
 export { jsonLd, llms } from './seo'
 export const render = (path: string) => renderToString(
-  <StrictMode><BookingProvider><App route={routeOf(path)!} /></BookingProvider></StrictMode>,
+  <StrictMode><BookingProvider copy={routeOf(path)!.lp?.book}><App route={routeOf(path)!} /></BookingProvider></StrictMode>,
 )

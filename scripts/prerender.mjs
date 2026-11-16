@@ -46,7 +46,7 @@ const deferEntry = (html) => {
 }
 
 const og = `${SITE}/og-image.jpg`
-const headFor = (r, lcp) => `<meta name="robots" content="${PREVIEW ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'}">
+const headFor = (r, lcp) => `<meta name="robots" content="${PREVIEW || r.lp ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'}">
 <link rel="canonical" href="${SITE}${r.path === '/' ? '/' : r.path}">
 <meta property="og:type" content="${r.article ? 'article' : 'website'}">
 <meta property="og:site_name" content="Cristyan Jiu-Jitsu &amp; Fitness">
@@ -92,7 +92,7 @@ for (const r of ROUTES) {
     .replace('<!--cr:head-->', headFor(r, lcp))
     .replace(EMPTY_ROOT, `<div id="root">${html}</div>`)
   write(r.path === '/' ? 'index.html' : `${r.path.slice(1)}/index.html`, deferEntry(page))
-  urls.push({ loc: `${SITE}${r.path === '/' ? '/' : r.path}`, lastmod: r.article?.date ?? new Date().toISOString().slice(0, 10) })
+  if (!r.lp) urls.push({ loc: `${SITE}${r.path === '/' ? '/' : r.path}`, lastmod: r.article?.date ?? new Date().toISOString().slice(0, 10) })
 }
 
 // /book: the kit's booking page, rendered in the browser; never indexed

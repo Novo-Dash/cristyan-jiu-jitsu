@@ -1,0 +1,247 @@
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────
+   /free-class · the landing page. Same tokens, type, corners (none) and components as the site
+   (styles/site.css); only what the LP adds lives here. Desktop ≥ 900px, phones next to each block.
+   Surfaces, top to bottom: hero card on white · white · ink · white · black · white · red · ink · white ·
+   photo → footer ink.
+   ───────────────────────────────────────────────────────────────────────────────────────────────── */
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* an open point (src/data/lp.ts PENDING): dashed, never mistaken for copy */
+.pend{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;font:700 12px/1.3 var(--f-b);letter-spacing:.02em;color:var(--r-deep);background:color-mix(in srgb,var(--r) 7%,var(--w));outline:1.5px dashed currentColor;outline-offset:-1.5px;vertical-align:middle;text-transform:none}
+.pend::before{content:"";flex:none;width:8px;height:8px;background:currentColor;rotate:45deg}
+.pend--d{color:var(--w);background:rgba(13,13,15,.55)}
+.pend--b{display:flex}
+
+/* nav on the LP: logo + phone only, the number always visible */
+.nav__tel--lp{margin-left:auto}
+@media (max-width:1079px){.nav__tel--lp{width:auto;padding:0 16px 0 12px}.nav__tel--lp span{display:inline}}
+@media (max-width:359px){.nav__tel--lp span{display:none}.nav__tel--lp{width:48px;padding:0;justify-content:center}}
+
+/* ── hero: the home's card (text left, the vertical video frame right), on white all the way down ── */
+.hc--lp{background:var(--p);padding-bottom:14px}
+.hc--lp .hc__card::before{background:linear-gradient(90deg,rgba(13,13,15,.92) 0%,rgba(13,13,15,.7) 40%,rgba(13,13,15,.2) 74%,rgba(13,13,15,.35)),linear-gradient(0deg,rgba(13,13,15,.75),transparent 46%)}
+.hc--lp .t-hero{font-size:clamp(42px,calc(4.1vw / var(--zs,1)),78px)}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:22px;font-size:14px;font-weight:600;color:rgba(255,255,255,.86)}
+.trust li{display:inline-flex;align-items:center;gap:8px}
+.trust svg{width:17px;height:17px;flex:none;color:var(--r-hi)}
+.trust a{display:inline-flex;align-items:center;gap:8px;min-height:24px;text-decoration:none}
+.trust a svg{color:var(--color-gold)}
+.trust b{color:var(--w)}
+.lp-vsl{background:var(--k-2) var(--pat) 0 0/90px auto repeat;filter:none}
+.lp-vsl::before{background:linear-gradient(0deg,rgba(13,13,15,.9),rgba(13,13,15,.2) 70%)}
+.lp-vsl figcaption{padding:16px}
+@media (max-width:899px){
+  .hc--lp{padding-bottom:10px}
+  .hc--lp .hc__card::before{background:linear-gradient(180deg,rgba(13,13,15,.8) 0%,rgba(13,13,15,.66) 45%,rgba(13,13,15,.92) 85%,var(--k) 100%)}
+  .hc--lp .t-hero{font-size:clamp(32px,9.4vw,44px)}
+  .trust{gap:8px 16px;margin-top:18px;font-size:13px}
+}
+
+/* ── who's training: the age ruler and the program cards ── */
+.ag{overflow-x:clip}
+.ag__ruler{margin-bottom:clamp(26px,calc(4vh / var(--zs,1)),44px)}
+.ag__ticks,.ag__bands{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:4px}
+.ag__tick{display:grid;place-items:center;height:58px;font:800 22px/1 var(--f-d);font-stretch:108%;font-variant-numeric:tabular-nums;background:var(--w);box-shadow:inset 0 0 0 1.5px var(--line);transition:background .25s,color .25s,box-shadow .25s}
+.ag__tick:hover{box-shadow:inset 0 0 0 1.5px var(--k)}
+.ag__tick.on{background:var(--k);color:var(--w);box-shadow:none}
+.ag__tick[aria-pressed=true]{background:var(--r-btn);color:var(--w);box-shadow:none}
+.ag__bands{grid-auto-rows:40px;margin-top:10px}
+.ag__band{position:relative}
+.ag__band i{position:absolute;left:0;right:0;top:0;height:6px;background:var(--k-5);transform-origin:0 50%;transition:background .3s}
+.ag__band span{display:block;padding-top:13px;font:700 12px/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:var(--mute);transition:color .3s}
+.ag__band.on i{background:var(--r)}
+.ag__band.on span{color:var(--k)}
+.ag__cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.ag__cell{display:flex}
+.ag__cell--a{grid-column:span 2}
+.ag__card .pc__body{gap:10px;padding:22px 22px 22px}
+.ag__top{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:28px}
+.ag__no{font:800 13px/1 var(--f-d);letter-spacing:.16em;color:var(--mute);transition:color .45s}
+.ag__start{padding:7px 10px;background:var(--r-btn);color:var(--w);font:800 12px/1 var(--f-d);font-stretch:108%;letter-spacing:.14em;text-transform:uppercase}
+.ag__unit{font:700 12px/1 var(--f-b);letter-spacing:.18em;text-transform:uppercase;color:var(--mute);transition:color .45s}
+.ag__range{display:block;margin:6px 0 2px;white-space:nowrap;font:800 clamp(56px,calc(4.6vw / var(--zs,1)),88px)/.84 var(--f-d);font-stretch:108%;letter-spacing:-.03em;font-variant-numeric:tabular-nums;transition:color .45s}
+.ag__card .pc__name{font-size:clamp(24px,calc(1.9vw / var(--zs,1)),32px)}
+.ag__card.is-active .ag__no,.ag__card.is-active .ag__unit{color:var(--mute-d)}
+.ag__card.is-active .ag__range{color:var(--r)}
+.ag__card--start:not(.is-active){box-shadow:inset 0 0 0 2px var(--r-btn)}
+.ag__cell--a .ag__card .pc__body{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto 1fr;column-gap:28px}
+.ag__cell--a .ag__top{grid-column:1/-1}
+.ag__cell--a .ag__range{grid-row:2/4;align-self:start}
+.ag__cell--a .pc__name{align-self:end}
+.ag__cell--a .pc__txt{grid-column:2}
+.ag__cell--a .pc__foot{grid-column:1/-1}
+.ag__acts{display:flex;justify-content:center;margin-top:clamp(34px,calc(5vh / var(--zs,1)),56px)}
+@media (max-width:1099px) and (min-width:900px){.ag__cards{grid-template-columns:repeat(2,minmax(0,1fr))}.ag__cell--a{grid-column:span 1}.ag__cell--a .ag__card .pc__body{display:flex}}
+@media (max-width:899px){
+  .ag__ticks{grid-template-columns:repeat(7,minmax(0,1fr))}
+  .ag__tick{grid-column:auto!important;height:48px;font-size:18px}
+  .ag__bands{display:none}
+  .ag__cards{display:flex;gap:12px;margin:0 calc(-1 * var(--gr)) 0 calc(-1 * var(--gl));padding:0 var(--gr) 24px var(--gl);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gl) var(--gr);overscroll-behavior-x:contain;scrollbar-width:none}
+  .ag__cards::-webkit-scrollbar{display:none}
+  .ag__cell,.ag__cell--a{flex:none;width:min(78vw,320px);scroll-snap-align:start}
+  .ag__cell--a .ag__card .pc__body{display:flex}
+  .ag__range{font-size:clamp(60px,19vw,84px)}
+  .ag .rnav{margin-top:0}
+}
+
+/* ── here's exactly what happens: four steps on one line, on ink ── */
+.hp{background:var(--k);color:var(--w)}
+.hp::before{display:none}
+.hp .head .t{max-width:15ch}
+.hp__steps{position:relative}
+.hp__line{position:absolute;left:26px;top:25px;width:75%;height:2px;background:rgba(255,255,255,.16)}
+.hp__fill{position:absolute;inset:0;background:var(--r);transform-origin:0 50%}
+.hp__list{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;padding:0;list-style:none}
+.hp__step{display:grid;justify-items:start;align-content:start;gap:12px;padding-right:clamp(16px,2.4vw,40px)}
+.hp__dot{position:relative;isolation:isolate;display:grid;place-items:center;width:52px;height:52px;margin-bottom:10px}
+.hp__dot::before{content:"";position:absolute;inset:7px;z-index:-1;background:var(--k-4);box-shadow:0 0 0 6px var(--k);rotate:45deg;transition:background .4s,scale .5s var(--spring)}
+.hp__dot b{font:800 16px/1 var(--f-d)}
+.hp__step.on .hp__dot::before{background:var(--r-btn);scale:1.12}
+.hp__t{font:800 clamp(21px,calc(1.7vw / var(--zs,1)),28px)/1.06 var(--f-d);font-stretch:108%;text-transform:uppercase;letter-spacing:-.005em;max-width:15ch}
+.hp__d{max-width:30ch;font-size:16px;line-height:1.55;color:rgba(255,255,255,.7)}
+.hp__acts{display:flex;flex-wrap:wrap;align-items:center;gap:16px 30px;margin-top:clamp(44px,calc(7vh / var(--zs,1)),72px);padding-top:clamp(30px,calc(4vh / var(--zs,1)),44px);border-top:1px solid rgba(255,255,255,.1)}
+.hp__talk{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:15px;color:var(--mute-d)}
+.hp__talk a{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:700;color:var(--w);text-decoration:none}
+.hp__talk svg{width:17px;height:17px;color:var(--r)}
+.still .hp__step .hp__dot::before{background:var(--r-btn)}
+@media (max-width:899px){
+  .hp__line{display:none}
+  .hp__list{grid-template-columns:1fr;gap:0}
+  .hp__step{position:relative;grid-template-columns:52px minmax(0,1fr);column-gap:16px;row-gap:6px;padding:0 0 30px}
+  .hp__step > :not(.hp__dot){grid-column:2}
+  .hp__dot{grid-row:1/span 3;margin:0}
+  .hp__step:not(:last-child)::after{content:"";position:absolute;left:25px;top:58px;bottom:6px;width:2px;background:rgba(255,255,255,.16);transition:background .4s}
+  .hp__step.on:not(:last-child)::after{background:var(--r)}
+  .hp__t{max-width:none;padding-top:13px;font-size:21px}
+}
+
+/* ── the coach: the professor card with the LP's text ── */
+.lpc .pf__top{align-items:start}
+.lpc__h{font-size:clamp(30px,calc(3.1vw / var(--zs,1)),54px);line-height:.95;max-width:15ch}
+.lpc__body{font-size:16px;line-height:1.65;color:var(--mute)}
+.lpc__stats{margin-top:clamp(22px,2.4vw,32px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.lpc__stats div{display:flex;flex-direction:column-reverse;gap:8px;padding:16px 14px;box-shadow:inset 0 0 0 1px var(--line)}
+.lpc__stats div:first-child{background:var(--r-btn);color:var(--w);box-shadow:none}
+.lpc__stats dt{font:700 11.5px/1.3 var(--f-b);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.lpc__stats div:first-child dt{color:rgba(255,255,255,.82)}
+.lpc__stats dd{margin:0;text-transform:uppercase;font:800 clamp(30px,calc(2.6vw / var(--zs,1)),44px)/.9 var(--f-d);font-stretch:108%;font-variant-numeric:tabular-nums}
+@media (max-width:899px){.lpc__h{font-size:clamp(28px,8.2vw,40px)}.lpc__stats div{padding:12px 10px}.lpc__stats dd{font-size:26px}.lpc__stats dt{font-size:10.5px;letter-spacing:.06em}}
+
+/* ── gallery: on pure black, one big frame and three, each photo drifting inside its frame ── */
+.gl{background:var(--color-black);color:var(--w)}
+.gl::before{display:none}
+.gl__note{justify-self:start}
+@media (min-width:1000px){.gl__note{justify-self:end}}
+.gl__grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) minmax(0,1fr);grid-template-rows:repeat(2,clamp(230px,calc(31vh / var(--zs,1)),340px));gap:12px}
+.gl__it{position:relative;overflow:hidden;background:var(--k-2)}
+.gl__it--0{grid-row:1/3}
+.gl__it--1{grid-column:2/4}
+.gl__ph{position:absolute;inset:0;overflow:hidden;font-style:normal}
+.gl__ph img{width:100%;height:100%;object-fit:cover;transform:scale(1.2)}
+.gl__it .pend{position:absolute;left:12px;bottom:12px;max-width:calc(100% - 24px)}
+@media (max-width:899px){
+  .gl__grid{display:flex;gap:12px;margin:0 calc(-1 * var(--gr)) 0 calc(-1 * var(--gl));padding:0 var(--gr) 22px var(--gl);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gl) var(--gr);overscroll-behavior-x:contain;scrollbar-width:none}
+  .gl__grid::-webkit-scrollbar{display:none}
+  .gl__it{flex:none;width:min(80vw,340px);aspect-ratio:4/5;scroll-snap-align:start}
+  .gl__ph img{transform:none}
+}
+
+/* ── what parents say: three cards side by side, the one you read red ── */
+.vo{overflow-x:clip}
+.vo__row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-bottom:30px}
+.vo .rc{width:auto;opacity:1;transform:none;cursor:default;padding:clamp(24px,2.4vw,34px)}
+.vo .rc blockquote{font-size:clamp(17px,1.25vw,19px)}
+@media (max-width:899px){
+  .vo__row{display:flex;gap:12px;margin:0 calc(-1 * var(--gr)) 0 calc(-1 * var(--gl));padding:0 var(--gr) 40px var(--gl);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gl) var(--gr);overscroll-behavior-x:contain;scrollbar-width:none}
+  .vo__row::-webkit-scrollbar{display:none}
+  .vo .rc{flex:none;width:min(84vw,360px);scroll-snap-align:start}
+}
+
+/* ── weekly schedule: the red section, day tabs and the day's classes on a white board ── */
+.wk{background:var(--r-btn);color:var(--w)}
+.wk::before{display:none}
+.wk .hl{background:linear-gradient(180deg,transparent 0 16%,var(--k) 16% 86%,transparent 86%)}
+.wk__in{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(30px,5vw,80px);align-items:start}
+.wk__side{display:grid;justify-items:start;gap:22px}
+.wk__acts{margin-top:8px}
+.wk .cta{background:var(--k);box-shadow:0 18px 34px -18px rgba(0,0,0,.7)}
+.wk .cta:hover{background:var(--k-3)}
+.wk .cta__m{background:var(--k-4);--mark-cut:var(--k-4)}
+.wk .cta::after{animation-name:cta-pulse-k}
+@keyframes cta-pulse-k{0%{box-shadow:0 0 0 0 rgba(13,13,15,.45)}75%,100%{box-shadow:0 0 0 14px rgba(13,13,15,0)}}
+.wk__board{box-shadow:0 50px 90px -50px rgba(0,0,0,.6)}
+.wk__tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;margin-bottom:4px}
+.wk__tabs button{position:relative;min-height:58px;padding:0 6px;background:rgba(13,13,15,.24);color:var(--w);font:800 15px/1.1 var(--f-d);font-stretch:108%;text-transform:uppercase;transition:background .2s}
+.wk__tabs button:hover{background:rgba(13,13,15,.4)}
+.wk__tabs button[aria-selected=true]{background:var(--k)}
+.wk__tabs i{position:absolute;top:8px;right:8px;width:7px;height:7px;background:var(--w);rotate:45deg}
+.wk__panel{min-height:336px;background:var(--w);color:var(--k)}
+.wk__list li{animation:tt-in .45s var(--ease) both;animation-delay:calc(var(--i) * 45ms)}
+.wk__list li + li{border-top:1px solid var(--p-2)}
+.wk__row{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:14px;align-items:center;width:100%;min-height:66px;padding:10px 22px;text-align:left;transition:background .2s}
+.wk__row:hover{background:color-mix(in srgb,var(--k) 4%,transparent)}
+.wk__row time{font:800 22px/1 var(--f-d);font-variant-numeric:tabular-nums}
+.wk__row time small{font:700 12px/1 var(--f-b);letter-spacing:.06em;color:var(--mute)}
+.wk__row > span{display:grid;gap:2px;padding-left:14px;border-left:3px solid var(--k)}
+.wk__row--kids > span{border-left-color:var(--r)}
+.wk__row--other > span{border-left-color:var(--k-5)}
+.wk__row b{font-size:16px;line-height:1.25}
+.wk__row span small{font-size:12.5px;color:var(--mute)}
+.wk__row em{font-style:normal;font-weight:700;font-size:13.5px;color:var(--r-btn)}
+.wk__closed{padding:30px 24px;font:800 26px/1.1 var(--f-d);font-stretch:108%;text-transform:uppercase;color:var(--mute)}
+@media (max-width:899px){
+  .wk__in{grid-template-columns:1fr;gap:28px}
+  .wk__acts{display:none}
+  .wk__tabs{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .wk__tabs button{min-height:50px}
+  .wk__panel{min-height:0}
+  .wk__row{grid-template-columns:72px minmax(0,1fr) auto;padding:10px 16px;gap:10px}
+  .wk__row time{font-size:19px}
+}
+.wk__end{display:none;margin-top:22px}
+@media (max-width:899px){.wk__end{display:flex}}
+
+/* ── parents train too: two rooms that meet on one clock ── */
+.sh{background:var(--k);color:var(--w);overflow-x:clip}
+.sh::before{display:none}
+.sh__in{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(36px,5vw,90px);align-items:center}
+.sh__copy .lead{margin-top:22px;color:rgba(255,255,255,.76)}
+.sh__acts{margin-top:30px}
+.sh__pair{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding-block:30px}
+.sh__f{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--k-2);box-shadow:0 50px 90px -50px rgba(0,0,0,.9)}
+.sh__f img{width:100%;height:100%;object-fit:cover}
+.sh__a{z-index:1;transform:rotate(-2deg);margin-right:-12px}
+.sh__b{z-index:2;transform:rotate(2deg);margin-left:-12px;top:34px}
+.sh__f figcaption{position:absolute;left:0;bottom:0;padding:10px 14px;background:var(--r-btn);font:800 15px/1 var(--f-d);font-stretch:108%;text-transform:uppercase;letter-spacing:.02em}
+.sh__b figcaption{left:auto;right:0;background:var(--w);color:var(--k)}
+.sh__clock{position:absolute;left:50%;top:50%;z-index:3;translate:-50% -50%;display:grid;place-items:center;align-content:center;gap:8px;width:clamp(130px,11vw,168px);aspect-ratio:1;background:var(--w);color:var(--k);box-shadow:0 0 0 8px var(--k),0 40px 70px -30px rgba(0,0,0,.9)}
+.sh__clock b{font:800 clamp(28px,2.5vw,38px)/.9 var(--f-d);font-stretch:108%;font-variant-numeric:tabular-nums;text-align:center}
+.sh__clock span{font:700 11px/1.2 var(--f-b);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);text-align:center}
+@media (max-width:899px){
+  .sh__in{grid-template-columns:1fr}
+  .sh__pair{padding-block:10px 30px}
+  .sh__f{aspect-ratio:3/4}
+  .sh__a{margin-right:-6px}
+  .sh__b{margin-left:-6px;top:22px}
+  .sh__clock{width:112px;box-shadow:0 0 0 6px var(--k),0 30px 50px -24px rgba(0,0,0,.9)}
+  .sh__clock b{font-size:24px}
+  .sh__clock span{font-size:9.5px;letter-spacing:.06em}
+  .sh__f figcaption{font-size:12.5px;padding:8px 10px}
+}
+
+/* ── the closing and the footer ── */
+.lpcl .cl__acts{margin-top:30px}
+/* the photo as a band on top, the text below it on the ink: never over the faces */
+.lpcl{min-height:min(calc(100svh / var(--zs,1)),920px)}
+.lpcl .cl__bg{inset:0 0 34% 0}
+.lpcl .cl__bg img{object-position:50% 30%}
+.lpcl::before{background:linear-gradient(180deg,rgba(13,13,15,.35) 0%,rgba(13,13,15,.1) 30%,rgba(13,13,15,.75) 56%,var(--k) 66%,var(--k) 100%)}
+@media (max-width:899px){.lpcl{min-height:0;padding-top:min(70vw,320px)}.lpcl .cl__bg{inset:0 0 auto 0;height:min(78vw,360px)}.lpcl::before{background:linear-gradient(180deg,transparent 40%,var(--k) min(78vw,360px))}}
+.lpf .find{padding-bottom:clamp(70px,calc(10vh / var(--zs,1)),110px)}
+.lpf .find__grid{min-height:clamp(340px,calc(42vh / var(--zs,1)),440px)}
+.lpf .find__card{gap:14px;padding-bottom:10px}
+.lpf .find__card > b{font-size:24px;line-height:1.02}
+.lpf .find__card > p{font-size:15px}
+.lpf__also svg{color:var(--r);--mark-cut:var(--k)}
+.lpf .foot__base{border-top:1px solid rgba(255,255,255,.08)}
+@media (max-width:899px){.lpf .find{padding-top:20px}}

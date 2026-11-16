@@ -15,9 +15,10 @@ export const SITE = {
   address: { street: '1513 Iyannough Rd', city: 'Hyannis', state: 'MA', zip: '02601', country: 'US', line: '1513 Iyannough Rd, Hyannis, MA 02601' },
   maps: {
     directions: 'https://www.google.com/maps/dir/?api=1&destination=1513+Iyannough+Rd+Hyannis+MA+02601',
-    // Plain view centred on the academy (1513 Iyannough Rd, on its Google listing), with no Google marker: the site draws
-    // its own pin with the logo beside it (client, 13/11: the search embed dropped a second pin off the address).
-    embed: 'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d-70.32287!3d41.6784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1731500000000',
+    // Plain view with no extra marker. The map's own "Cristyan BJJ Academy" label and icon sit in the middle of the view,
+    // in the gap between the photo and the card (Adryan, 16/11: no site pin, the map already names it). The centre is set
+    // a little west of the listing because Google draws the name to the left of its icon.
+    embed: 'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d-70.31977!3d41.67844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1731500000000',
   },
   social: {
     instagram: 'https://www.instagram.com/cristyanbjj',
