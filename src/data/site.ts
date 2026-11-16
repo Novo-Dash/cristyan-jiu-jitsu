@@ -414,7 +414,8 @@ export const programHref = (programSlug: string) => {
   const t = trackOf(programSlug), first = classesOf(t).find((c) => c.program === programSlug)
   return t.programs[0] === programSlug ? `/programs/${t.slug}` : `/programs/${t.slug}#${first?.id ?? ''}`
 }
-export const slotOf = (c: ClassCard) => CLASSES.filter((k) => k.name === c.slot)
+// the No-Gi class of the same level (Wednesday) belongs to the same card
+export const slotOf = (c: ClassCard) => CLASSES.filter((k) => k.name === c.slot || k.name === `${c.slot} No-Gi`)
 
 // /programs · how to start, in three steps (Adryan, 11/11: the page was short; the band that holds the
 // page is the Gonzales / Fight Sports idea, here in the logo's diamonds)
