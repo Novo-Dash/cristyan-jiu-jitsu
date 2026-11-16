@@ -29,7 +29,7 @@ export function Footer() {
         <div className="find__map" aria-hidden="true">
           {near && <iframe title={`Map: ${SITE.academy}, ${SITE.address.line}`} src={SITE.maps.embed} loading="lazy" referrerPolicy="no-referrer-when-downgrade" tabIndex={-1} />}
           <span className="find__shade" />
-          <span className="find__pin"><i /><i /><Mark /></span>
+          <span className="find__pin"><i /><i /><Mark /><span className="find__lbl"><img src={SITE.logoWhite.src} width={SITE.logoWhite.w} height={SITE.logoWhite.h} alt="" /></span></span>
         </div>
         <div className="shell find__in">
           <div className="find__head">

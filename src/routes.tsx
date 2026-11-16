@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react'
 import { TRACKS } from './data/site'
 import { AboutPage, Home, InstructorsPage, ProgramsPage, SchedulePage, TrackPage } from './pages/pages'
+import { BlogPage, PostPage, coverOf } from './pages/blog'
+import { POSTS } from './data/blog.gen'
 
 export type Route = { path: string; title: string; description: string; image?: string; page: () => ReactNode; article?: { date: string } }
 
@@ -12,6 +14,8 @@ export const ROUTES: Route[] = [
   ...TRACKS.map((t) => ({ path: `/programs/${t.slug}`, title: `${t.name} in Hyannis, MA | ${brand}`, description: t.lead.slice(0, 158), image: t.photo.src, page: () => <TrackPage t={t} /> })),
   { path: '/schedule', title: `Class Schedule | ${brand}, Hyannis MA`, description: 'Weekly class schedule of Cristyan Jiu-Jitsu & Fitness in Hyannis, MA: kids BJJ from 4:30 PM, teens, adults, Judo, Capoeira and Box Fitness until 9:00 PM.', page: () => <SchedulePage /> },
   { path: '/instructors', title: `Instructors | ${brand}, Hyannis MA`, description: 'Meet Professor Cristyan Martins, 4th-degree black belt and two-time world champion, and the instructors of Cristyan Jiu-Jitsu & Fitness in Hyannis, MA.', page: () => <InstructorsPage /> },
+  { path: '/blog', title: `Jiu-Jitsu Blog: Tips & Insights | ${brand}, Hyannis MA`, description: 'Guides on Brazilian Jiu-Jitsu, self-defense, fitness and kids martial arts for Hyannis and Cape Cod, and news from the academy.', page: () => <BlogPage /> },
+  ...POSTS.map((p) => ({ path: `/blog/${p.slug}`, title: `${p.title} | ${brand}`, description: p.desc.slice(0, 158), image: coverOf(p).src, article: { date: p.iso }, page: () => <PostPage p={p} /> })),
   { path: '/about', title: `About the Academy | ${brand}, Hyannis MA`, description: 'A family academy in Hyannis, MA: structured jiu-jitsu classes, a clear curriculum and measurable progress, from a 1,000 to a 5,000 sq ft academy.', page: () => <AboutPage /> },
 ]
 

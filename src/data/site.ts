@@ -15,7 +15,9 @@ export const SITE = {
   address: { street: '1513 Iyannough Rd', city: 'Hyannis', state: 'MA', zip: '02601', country: 'US', line: '1513 Iyannough Rd, Hyannis, MA 02601' },
   maps: {
     directions: 'https://www.google.com/maps/dir/?api=1&destination=1513+Iyannough+Rd+Hyannis+MA+02601',
-    embed: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s1513+Iyannough+Rd+Hyannis+MA+02601!6i15',
+    // Plain view centred on the academy (1513 Iyannough Rd, on its Google listing), with no Google marker: the site draws
+    // its own pin with the logo beside it (client, 13/11: the search embed dropped a second pin off the address).
+    embed: 'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d-70.32287!3d41.6784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1731500000000',
   },
   social: {
     instagram: 'https://www.instagram.com/cristyanbjj',
@@ -25,7 +27,7 @@ export const SITE = {
   google: { rating: '5.0', count: 131, url: 'https://www.google.com/search?q=Cristyan+Brazilian+Jiu-Jitsu+Academy+Hyannis' },
   logo: img('logo', 'Cristyan Jiu-Jitsu & Fitness'),
   logoWhite: img('logo_footer', 'Cristyan Jiu-Jitsu & Fitness'),
-  students: 166,
+  students: 168,
   values: ['Respect', 'Discipline', 'Community', 'Honor', 'Humble', 'Passion', 'Progress', 'Inclusion'],
 }
 
@@ -36,6 +38,7 @@ export const NAV = [
   { label: 'Schedule', href: '/schedule' },
   { label: 'Instructors', href: '/instructors' },
   { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
 ]
 
 // ── programs ──
@@ -241,7 +244,7 @@ export const ABOUT = {
     'Every class follows a clear curriculum that reinforces the foundations while gradually introducing new techniques in a measurable, supportive way. Students are guided step by step through a process that builds technical precision, physical conditioning and mental discipline over time.',
   ],
   family: 'A family business. Professor Cristyan teaches alongside his family, and the academy grew with its students: from a 1,000 sq ft room to a 5,000 sq ft academy.',
-  growth: [{ n: '1,000', u: 'sq ft', d: 'where it started' }, { n: '5,000', u: 'sq ft', d: 'the academy today' }, { n: '166', u: 'students', d: 'training this season' }],
+  growth: [{ n: '1,000', u: 'sq ft', d: 'where it started' }, { n: '5,000', u: 'sq ft', d: 'the academy today' }, { n: '168', u: 'students', d: 'training this season' }],
   space: img('about_hero', 'The empty 5,000 sq ft training floor with grey mats and the Cristyan logo on the wall'),
   team: img('about_2', 'The whole academy, kids and adults, together on the mats'),
   mission: img('mission', 'Professor Cristyan smiling with the adult team behind him'),
@@ -314,7 +317,7 @@ export const TOUR = {
   stops: [
     { shot: img('space_1', 'The front of Cristyan Jiu-Jitsu on Iyannough Rd: the sign above a glass door and a walkway between the hedges'), pos: '50% 18%',
       title: 'The front door', text: '1513 Iyannough Rd, Hyannis. Look for the sign, walk in, say hi, and the coach takes it from there.' },
-    { shot: img('space_2', 'Inside the door: the Cristyan logo rug, a row of seats along the wall and the mat behind a rope'), pos: '50% 58%',
+    { shot: img('space_2', 'Inside the door: the Cristyan logo rug, a row of seats along the wall and the mat behind a rope'), pos: '50% 40%',
       title: "Parents' seats", text: 'Right inside the door, beside the mat and behind the rope. Parents watch the whole class.' },
     { shot: img('space_3', 'The front desk with team gear, gis on mannequins and a drinks fridge'), pos: '50% 55%',
       title: 'The front desk', text: 'Check in here, grab the water that comes with your trial class, and find gis and team gear.' },
@@ -323,7 +326,7 @@ export const TOUR = {
     { shot: img('space_5', 'From the logo rug at the door, the mat and the wall that reads train like a champion, grow like a family'), pos: '50% 4%',
       title: 'The logo wall', text: 'Train like a champion, grow like a family. Every team photo is taken here.', photo: img('adult_2', 'The adult team seated in front of the Cristyan logo') },
   ],
-  facts: [['166', 'students this season'], ['6', 'programs under one roof'], ['5', 'trial students per class at most']] as [string, string][],
+  facts: [['168', 'students this season'], ['6', 'programs under one roof'], ['5', 'trial students per class at most']] as [string, string][],
 }
 
 // ── the head coach as a passport (instructors page) ──
@@ -362,7 +365,7 @@ export const VALUES = {
   items: [
     { word: 'Respect', line: 'Coaches kneel to teach the smallest students, eye to eye.', photo: img('kids_2', 'A coach kneeling on the mat to teach two young students') },
     { word: 'Discipline', line: 'Lined up and ready before the first drill. Structure first, then the fun.', photo: img('kids_1', 'Kids lined up on the mat before class') },
-    { word: 'Community', line: '166 students, kids and adults, on one mat in Hyannis.', photo: img('hero', 'The whole academy together on the mats') },
+    { word: 'Community', line: '168 students, kids and adults, on one mat in Hyannis.', photo: img('hero', 'The whole academy together on the mats') },
     { word: 'Honor', line: 'Wearing the academy name at the Boston Fall Open 2026.', photo: img('boston_fall_open_2026_team', 'The competition team at the Boston Fall Open 2026') },
     { word: 'Humble', line: 'Two world titles on the wall. On the mat, he is simply Professor.', photo: img('prof_2', 'Professor Cristyan in front of his medals and title belts') },
     { word: 'Passion', line: 'Jiu-jitsu, Judo, Capoeira and boxing. One roof, four arts.', photo: img('judo_throw_2', 'A Judo throw on the mat at Cristyan Jiu-Jitsu') },

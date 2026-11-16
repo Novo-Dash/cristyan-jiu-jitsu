@@ -976,3 +976,7 @@ html.menu-open{overflow:hidden}
 
 /* the smallest phones: a long button label wraps instead of pushing the page sideways */
 @media (max-width:380px){.cta{height:auto;min-height:var(--h);white-space:normal;padding-block:6px}}
+
+/* The one point on the map, with the academy logo beside it (client, 13/11/2026). */
+.find__lbl{position:absolute;left:30px;top:-19px;display:flex;align-items:center;height:38px;padding:0 12px;background:var(--k);box-shadow:0 8px 18px rgba(0,0,0,.5);white-space:nowrap}
+.find__lbl img{display:block;width:auto;height:24px;max-width:none}

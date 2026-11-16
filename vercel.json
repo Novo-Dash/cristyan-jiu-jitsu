@@ -80,16 +80,6 @@
       "permanent": true
     },
     {
-      "source": "/blog",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/blog/:slug*",
-      "destination": "/",
-      "permanent": true
-    },
-    {
       "source": "/programs/womens-self-defense-and-fitness",
       "destination": "/programs/adult-brazilian-jiu-jitsu#womens-self-defense-fitness",
       "permanent": true
