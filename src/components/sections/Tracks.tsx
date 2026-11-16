@@ -126,7 +126,7 @@ function Week({ c }: { c: ClassCard }) {
     <ol className="cp__week" role="list" aria-label={`${c.name} times: ${c.when}`}>
       {DAYS.filter((d) => d !== 'Sat').map((d) => {
         const s = slots.find((k) => k.days.includes(d))
-        return <li key={d} className={s ? 'on' : ''} aria-hidden="true"><b>{d}</b><span>{s ? fmt(s.start).replace(' PM', '') : '·'}</span></li>
+        return <li key={d} className={s ? 'on' : ''} aria-hidden="true"><b>{d}</b><span>{s ? fmt(s.start).replace(' PM', '') : '·'}</span>{s?.name.endsWith('No-Gi') ? <small>No-Gi</small> : null}</li>
       })}
     </ol>
   )
