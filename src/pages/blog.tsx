@@ -18,7 +18,7 @@ import { Tag, TitleText, type Title } from '../components/ui/Title'
 
 type Name = keyof typeof IMG
 export const coverOf = (p: Post): Img => img((p.cover ?? 'mission') as Name, p.title)
-export const postHref = (p: Post) => `/blog/${p.slug}`
+const postHref = (p: Post) => `/blog/${p.slug}`
 const NEWS = POSTS.filter((p) => p.category === 'News')
 const CATS = ['All', ...new Set(POSTS.filter((p) => p.category !== 'News').map((p) => p.category))]
 

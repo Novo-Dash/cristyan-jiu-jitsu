@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText, useGSAP)
 // phones run pinned scenes too (/lp, 16/11): the address bar showing and hiding must not re-measure them mid-scroll
 ScrollTrigger.config({ ignoreMobileResize: true })
 
-export { gsap, ScrollTrigger, SplitText, useGSAP }
+export { gsap, ScrollTrigger, useGSAP }
 
 /**
  * Gesture 1 of 2 (PRD 0.4.1): the lines of a title rise from a mask. autoSplit re-splits on resize

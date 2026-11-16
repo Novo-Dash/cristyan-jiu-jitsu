@@ -43,7 +43,7 @@ export const NAV = [
 ]
 
 // ── programs ──
-export type Group = { name: string; ages: string }
+type Group = { name: string; ages: string }
 export type Program = {
   slug: string; name: string; short: string; tag: string; ages: string; audience: 'kids' | 'adults'
   lead: string; who: string[]; learn: { intro: string; items: string[]; outro?: string }
@@ -409,7 +409,7 @@ export const classesOf = (t: Track): ClassCard[] => t.programs.flatMap((ps) => (
   const p = PROGRAMS.find((x) => x.slug === ps)!
   return { ...l, ...CLASS_X[l.name], id: slugify(l.name), program: ps, track: t.slug, audience: p.audience }
 }))
-export const trackOf = (programSlug: string) => TRACKS.find((t) => t.programs.includes(programSlug))!
+const trackOf = (programSlug: string) => TRACKS.find((t) => t.programs.includes(programSlug))!
 /** Where a program now lives: its track page, at its first class when it is not the track's main program. */
 export const programHref = (programSlug: string) => {
   const t = trackOf(programSlug), first = classesOf(t).find((c) => c.program === programSlug)
