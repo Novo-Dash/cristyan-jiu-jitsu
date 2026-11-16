@@ -21,7 +21,7 @@ export const SITE = {
   },
   social: {
     instagram: 'https://www.instagram.com/cristyanbjj',
-    facebook: 'https://www.facebook.com/share/17GDcAgek8/',
+    facebook: 'https://www.facebook.com/people/Cristyan-Jiu-Jitsu-Academy/61581997049515/',
     youtube: 'https://www.youtube.com/channel/UClwQiANk5-BV0qWP6aGKBeQ',
   },
   google: { rating: '5.0', count: 131, url: 'https://www.google.com/search?q=Cristyan+Brazilian+Jiu-Jitsu+Academy+Hyannis' },
@@ -95,7 +95,7 @@ export const PROGRAMS: Program[] = [
     gets: { title: 'A full-body workout', intro: 'Beyond self-defense, every session helps you:', items: ['Burn calories and improve endurance', 'Build strength and muscle tone', 'Increase mobility and flexibility', 'Improve coordination and balance', 'Reduce stress and boost energy'] },
     // [CONFIRMAR] the form lists no separate time for this class
     classes: [],
-    photo: img('women_2', 'A woman practicing a jiu-jitsu escape on the mat'),
+    photo: img('women_team', "The women's team of Cristyan Jiu-Jitsu, fifteen women in gis in front of the academy logo"),
     photo2: img('women_1', 'A self-defense drill against a standing grab'),
   },
   {
@@ -137,7 +137,7 @@ export const PROGRAMS: Program[] = [
     gets: { title: 'Fitness and mental discipline', intro: 'A full-body workout that trains the mind too. Classes help you:', items: ['Build functional strength and power', 'Improve balance and body control', 'Increase agility', 'Develop endurance', 'Sharpen focus and resilience'] },
     classes: ['Judo'],
     photo: img('judo_throw_2', 'A Judo throw on the mat at Cristyan Jiu-Jitsu'),
-    photo2: img('judo_1', 'Two judoka in white and blue gis mid-throw'),
+    photo2: img('judo_team', 'The Judo class at Cristyan Jiu-Jitsu: two kids and three adults in gis on the mat'),
     tuition: '$149 /mo',
   },
 ]
@@ -398,8 +398,8 @@ const CLASS_X: Record<string, { photo: ReturnType<typeof img>; chips: string[]; 
   Novice: { photo: img('adult_1', 'A smiling adult student on the mat after class'), chips: ['Fundamentals', 'No experience', 'Step by step'], fit: 'Where every adult starts, at any age or fitness level.', slot: 'Adult Novice BJJ' },
   Intermediate: { photo: img('adult_2', 'The adult team seated on the mat in front of the logo'), chips: ['Positional training', 'Live rolling', 'Gi'], fit: 'For students with the basics in place.', slot: 'Adult Intermediate BJJ' },
   Advanced: { photo: img('adult', 'Adult students in gis in front of the academy logo'), chips: ['Advanced technique', 'Gi and no-gi', 'Hard rounds'], fit: 'For experienced students and competitors.', slot: 'Adult Advanced BJJ' },
-  "Women's Self-Defense & Fitness": { photo: img('women_2', 'A woman practicing a jiu-jitsu escape on the mat'), chips: ['Escapes', 'Ground defense', 'Full-body workout'], fit: 'For women 16+, all levels, in a welcoming class.' },
-  'Teen & Adult Judo': { photo: img('judo_1', 'A judo throw on the mat'), chips: ['Breakfalls', 'Throws', 'Grips and pins'], fit: 'For ages 12+, for self-defense, fitness or competition.', slot: 'Judo' },
+  "Women's Self-Defense & Fitness": { photo: img('women_team', "The women's team of Cristyan Jiu-Jitsu, fifteen women in gis in front of the academy logo"), chips: ['Escapes', 'Ground defense', 'Full-body workout'], fit: 'For women 16+, all levels, in a welcoming class.' },
+  'Teen & Adult Judo': { photo: img('judo_team', 'The Judo class at Cristyan Jiu-Jitsu: two kids and three adults in gis on the mat'), chips: ['Breakfalls', 'Throws', 'Grips and pins'], fit: 'For ages 12+, for self-defense, fitness or competition.', slot: 'Judo' },
   Capoeira: { photo: img('capoeira_1', 'A Capoeira class with Instructor Jhenifer'), chips: ['Ginga', 'Rhythm', 'The roda'], fit: 'For all ages, beginners and experienced alike.', slot: 'Capoeira' },
   'Box Fitness': { photo: img('boxing', 'The Box Fitness class with gloves in front of the heavy bags'), chips: ['Pad work', 'Combinations', 'Conditioning'], fit: 'For adults of every level. No boxing experience needed.', slot: 'Box Fitness' },
 }

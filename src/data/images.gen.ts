@@ -90,6 +90,16 @@ export const IMG = {
     "h": 488,
     "sm": 480
   },
+  "women_team": {
+    "w": 1448,
+    "h": 1086,
+    "sm": 800
+  },
+  "judo_team": {
+    "w": 576,
+    "h": 1024,
+    "sm": 480
+  },
   "judo_throw_2": {
     "w": 1400,
     "h": 930,
