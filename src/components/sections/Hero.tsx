@@ -9,7 +9,7 @@ import { Photo } from '../ui/Photo'
 import { TitleText, type Title } from '../ui/Title'
 
 type Props = {
-  eyebrow: string; title: Title; sub: string; photo: Img; home?: boolean; pos?: string
+  eyebrow: string; title: Title; sub: ReactNode; photo: Img; home?: boolean; pos?: string
   // a second photo for desktop, where the card is much wider than tall (Adryan, 11/11: the family photo
   // cut everyone's head on /instructors); phones keep `photo`
   wide?: { photo: Img; pos?: string }

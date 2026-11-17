@@ -51,13 +51,11 @@ export const STRIP = [
 
 // ── the reviews: the site's six plus more parents from the Google listing (Adryan, 16/11: "quero mais reviews").
 // Verbatim from Google Maps, read 16/11/2026; first name + initial; the one dash in Yanka's text became a comma.
+// 17/11 (Adryan): the longest ones out so the cards stay short; Shamus in his first sentence.
 export const LP_REVIEWS = [
-  REVIEWS[0],
-  { text: 'We absolutely love this jiu-jitsu academy! The coach is fantastic, and the way he works with children is truly amazing. He creates a positive, welcoming environment where kids can learn, grow, and have fun. We couldn’t be happier with our experience and highly recommend this place to any family!', name: 'Hyasmyn C.', meta: 'Parent' },
+  { ...REVIEWS[0], text: 'A fantastic experience for my 6-year-old daughter and 4-year-old son, offering structured, professional instruction.' },
   REVIEWS[1],
-  { text: 'My daughter trains at Cristyan Jiu Jitsu and it has been an outstanding experience. She genuinely looks forward to class, especially on the days when it’s challenging. The instruction is attentive, disciplined, and focused on real progress. The coaches push the kids in a constructive way with high standards, clear feedback, and consistent accountability.', name: 'Matthew S.', meta: 'Parent' },
   REVIEWS[2],
-  { text: 'Christyan is an excellent instructor who is passionate about jujitsu and most importantly cares about each and every student. He embodies discipline and respect and it has had a profound impact on my son. It is a family run business and I’m happy to support them. I highly recommend!', name: 'Macarena M.', meta: 'Parent' },
   REVIEWS[3],
   { text: 'We love this place! Both my daughter’s jiu-jitsu classes and my boxing fitness classes are amazing. The instructors are supportive, motivating, and create such a positive environment. Great workouts, great energy, and great people, highly recommend!', name: 'Yanka D.', meta: 'Parent' },
   REVIEWS[4],

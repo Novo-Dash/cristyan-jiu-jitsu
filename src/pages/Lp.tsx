@@ -26,7 +26,7 @@ export function LpPage() {
   }, [])
   return (
     <div className="lp2" ref={ref}>
-      <Hero home className="lph" eyebrow={HERO.eyebrow} title={LP_HERO.title} sub={LP_HERO.sub} photo={LP_HERO.photo} pos="50% 40%" cta={LP_CTA} proof={null} />
+      <Hero home className="lph" eyebrow={HERO.eyebrow} title={LP_HERO.title} sub={<><span className="lph__long">{LP_HERO.sub}</span><span className="lph__short">{LP_HERO.subShort}</span></>} photo={LP_HERO.photo} pos="50% 40%" cta={LP_CTA} proof={null} />
       <AgeScene />
       <FirstClass />
       <CoachSpec />

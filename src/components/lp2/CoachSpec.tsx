@@ -34,11 +34,11 @@ export function CoachSpec() {
         .fromTo(facts.map((f) => f.querySelector('.cs__ln')), { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: 'expo.out', stagger: 0.12 }, 0)
         .fromTo(facts.map((f) => f.querySelector('.cs__fb')), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', stagger: 0.12 }, 0.2)
     })
-    // phones: the six facts come in two by two, their red rule drawing down first
+    // phones: the six facts come in two by two
     gsap.matchMedia().add('(max-width: 899px)', () => {
       const fb = [...r.querySelectorAll<HTMLElement>('.cs__fb')]
       const order = [0, 3, 1, 4, 2, 5].map((i) => fb[i]).filter(Boolean)
-      gsap.fromTo(order, { opacity: 0, x: -16, '--rule': 0 }, { opacity: 1, x: 0, '--rule': 1, duration: 0.7, ease: 'power3.out', stagger: 0.09, scrollTrigger: { trigger: r.querySelector('.cs__stage'), start: 'top 78%', once: true } })
+      gsap.fromTo(order, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', stagger: 0.09, scrollTrigger: { trigger: r.querySelector('.cs__stage'), start: 'top 78%', once: true } })
     })
   }, { scope: root })
 

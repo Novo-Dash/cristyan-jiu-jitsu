@@ -21,6 +21,8 @@ export const PENDING = {
 export const LP_HERO = {
   title: { a: 'Your child trains with kids ', b: 'their own age.' },
   sub: 'Jiu-Jitsu in Hyannis for kids 4 to 15, split into four age groups, and a Novice class for adults who have never trained. Taught by a 4th-degree black belt with a degree in Physical Education. Your first class is free.',
+  // phones (Adryan, 17/11): the same promise in three lines instead of six
+  subShort: 'Jiu-Jitsu for kids 4 to 15 in four age groups, plus a Novice class for adults. Your first class is free.',
   trust: ['No experience needed', 'No card on file'],
   photo: img('kids', 'The kids of Cristyan Jiu-Jitsu in their gis in front of the academy logo'),
 }
@@ -60,7 +62,7 @@ export const HAPPENS = {
 
 // ── the coach ──
 export const COACH = {
-  eyebrow: 'Professor Cristyan Martins · Head Coach & Owner',
+  eyebrow: 'Head coach & owner',
   title: { a: 'He studied ', b: 'how kids learn', c: ' before he taught them to fight.' },
   body: "Professor Cristyan has trained Jiu-Jitsu since 1999 and has been a black belt for 17 years, under Rodrigo Feijão (Clube Feijão / Nova União). He holds a degree in Physical Education and a postgraduate degree in Jiu-Jitsu, and taught for nearly 10 years in Brazil before opening his academy in Hyannis. That's where the age-group method comes from: classes built around how children move and develop at each age.",
   stats: [{ n: '1999', l: 'Training since' }, { n: '4th', l: 'Degree black belt' }, { n: '5,000', l: 'Sq ft academy' }],

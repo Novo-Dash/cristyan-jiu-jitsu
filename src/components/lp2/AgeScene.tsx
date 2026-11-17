@@ -1,11 +1,9 @@
 import { useRef, useState } from 'react'
 import { AGES, AGE_TICKS, LP_CTA } from '../../data/lp'
 import { AGE_ADV, AGE_SCENE } from '../../data/lpv2'
-import { gsap, lines, rise, useGSAP } from '../../lib/gsap'
-import { FLAT, motionOK, SCENE } from '../../lib/motion'
-import { useRail } from '../../lib/useRail'
+import { gsap, lines, ScrollTrigger, useGSAP } from '../../lib/gsap'
+import { motionOK } from '../../lib/motion'
 import { useBooking } from '../../nd'
-import { RailNav } from '../sections/Tracks'
 import { Cta } from '../ui/Cta'
 import { Icon } from '../ui/Icon'
 import { Mark } from '../ui/Mark'
@@ -18,6 +16,8 @@ const LAST = AGE_TICKS[AGE_TICKS.length - 1]
 const progOf = (age: number) => (age <= 6 ? 0 : age <= 8 ? 1 : age <= 11 ? 2 : age <= 15 ? 3 : 4)
 const label = (age: number) => (age >= LAST ? `${LAST}+` : String(age))
 const pct = (age: number) => ((Math.min(age, LAST) - 4) / (LAST - 4)) * 100
+/** phones: the stretch of the ruler each room covers while it is read (4 to 7, 7 to 9, 9 to 12, 12 to 16, 16) */
+const SPAN = P.map((p, i) => [i === 0 ? 4 : p.from, i < P.length - 1 ? P[i + 1].from : LAST] as const)
 
 /**
  * "Four kids programs. Never one mixed room." The page's mechanism: you scroll your child's age. A ruler from
@@ -25,14 +25,14 @@ const pct = (age: number) => ((Math.min(age, LAST) - 4) / (LAST - 4)) * 100
  * takes that age slides in on the right (its photo wipes over the last one, its name, hours and button), while
  * the band of that program lights red on the ruler. A 4-year-old and a 12-year-old never land in the same room,
  * and the visitor sees it happen. Desktop: a sticky stage about four screens tall, every frame from the scroll.
- * Phones run the same scene stacked in one screen (Adryan, 16/11); short phones and reduced motion: tap an
- * age and the rail of rooms jumps to the one that takes it.
+ * Phones (Adryan, 17/11): the ruler stands vertical on the left, the rooms are stacked on the right and the
+ * marker runs down the ages as they scroll by; nothing pins, nothing moves sideways.
  */
 export function AgeScene() {
   const root = useRef<HTMLElement>(null)
   const [age, setAge] = useState(4)
-  const [pick, setPick] = useState<number | null>(null)
-  const rail = useRail<HTMLUListElement>()
+  const [vAt, setVAt] = useState(0)
+  const [vAge, setVAge] = useState(4)
   const { open } = useBooking()
 
   useGSAP(() => {
@@ -40,7 +40,7 @@ export function AgeScene() {
     const r = root.current!
     r.querySelectorAll('h2').forEach((h) => lines(h))
     const mm = gsap.matchMedia()
-    mm.add(SCENE, () => {
+    mm.add('(min-width: 900px)', () => {
       const mark = r.querySelector<HTMLElement>('.as__mark')!, fill = r.querySelector<HTMLElement>('.as__fill')!
       let last = -1
       const paint = (p: number) => {
@@ -59,20 +59,31 @@ export function AgeScene() {
       r.classList.add('is-live')
       return () => { r.classList.remove('is-live'); setAge(4) }
     })
-    mm.add(FLAT, () => {
-      rise(r.querySelectorAll('.as__tick'), r.querySelector('.as__ticks')!, { stagger: 0.03, y: 14 })
+    // phones (Adryan, 17/11): no pinned screen, no sideways move. The ruler stands on the left and holds while
+    // the rooms scroll by on the right; its marker runs down through each room's ages as that room is read.
+    mm.add('(max-width: 899px)', () => {
+      const mark = r.querySelector<HTMLElement>('.as__vmark')!, fill = r.querySelector<HTMLElement>('.as__vfill')!
+      const cells = [...r.querySelectorAll<HTMLElement>('.as__vlist > li')]
+      let lastAge = -1, lastAt = -1
+      const put = (a: number, i: number) => {
+        const y = pct(a)
+        mark.style.transform = `translate3d(0,${y}cqh,0)`
+        fill.style.transform = `scaleY(${y / 100})`
+        const whole = Math.min(LAST, Math.floor(a + 0.0001))
+        if (whole !== lastAge) { lastAge = whole; setVAge(whole) }
+        if (i !== lastAt) { lastAt = i; setVAt(i) }
+      }
+      put(4, 0)
+      cells.forEach((c, i) => {
+        const [a, b] = SPAN[i]
+        ScrollTrigger.create({ trigger: c, start: 'top 55%', end: 'bottom 55%', onUpdate: (s) => put(a + s.progress * (b - a), i), onEnter: () => put(a, i), onEnterBack: () => put(b, i) })
+        gsap.fromTo(c, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', clearProps: 'transform,opacity', scrollTrigger: { trigger: c, start: 'top 90%', once: true } })
+      })
+      return () => { setVAt(0); setVAge(4) }
     })
   }, { scope: root })
 
   const at = progOf(age)
-  const tap = (a: number) => {
-    const next = a === pick ? null : a
-    setPick(next)
-    const t = rail.ref.current
-    if (next === null || !t) return
-    const c = t.children[progOf(next)] as HTMLElement | undefined
-    if (c) t.scrollTo({ left: c.offsetLeft - parseFloat(getComputedStyle(t).paddingLeft), behavior: motionOK() ? 'smooth' : 'auto' })
-  }
   const head = (id: string) => (
     <div className="as__top">
       <div><Tag>{AGES.tag}</Tag><h2 className="t t-1" id={id}><TitleText title={AGES.title} /></h2></div>
@@ -107,15 +118,14 @@ export function AgeScene() {
                 <article key={p.id} className={`as__room as__room--${p.id}${i === at ? ' on' : i < at ? ' past' : ''}`} aria-hidden={i === at ? undefined : true}>
                   <i className="as__ph"><Photo photo={p.photo} sizes="(max-width: 899px) 84vw, 44vw" /></i>
                   <div className="as__card">
-                    <p className="as__n">{p.start ? <span className="as__start">{p.no}</span> : <span>Room {p.no} / 04</span>}<i aria-hidden="true" /><span>{p.audience === 'kids' ? 'Kids' : 'Adults'}</span></p>
-                    <div className="as__main">
-                      <p className="as__big"><small>{p.audience === 'kids' ? 'Ages' : 'Adults'}</small><b>{range(p)}</b></p>
-                      <div className="as__copy">
-                        <h3 className="as__name">{p.name}</h3>
-                        <p className="as__txt">{p.text}</p>
-                        {p.start ? <p className="as__adv"><b>{AGE_ADV.name}.</b> {AGE_ADV.text}</p> : null}
-                      </div>
+                    {p.start ? <p className="as__n"><span className="as__start">{p.no}</span></p> : null}
+                    {/* the same card as on phones (Adryan, 17/11): the class name big on one line, the ages a badge beside it */}
+                    <div className="as__head">
+                      <h3 className="as__name">{p.name}</h3>
+                      <p className="as__yrs"><b>{range(p)}</b><span>Years<br />old</span></p>
                     </div>
+                    <p className="as__txt">{p.text}</p>
+                    {p.start ? <p className="as__adv"><b>{AGE_ADV.name}.</b> {AGE_ADV.text}</p> : null}
                     <button type="button" className="as__go" tabIndex={i === at ? 0 : -1} onClick={() => open({ audience: p.audience })}>
                       <span>{LP_CTA}: {p.name}</span><Icon name="arrow" />
                     </button>
@@ -129,27 +139,31 @@ export function AgeScene() {
 
       <div className="shell as__flat">
         {head('as-h2')}
-        <div className="as__ticks" role="group" aria-label="Your child's age">
-          {AGE_TICKS.map((a) => (
-            <button key={a} type="button" className={`as__tick${pick !== null && progOf(pick) === progOf(a) ? ' on' : ''}`} aria-pressed={pick === a} onClick={() => tap(a)}>{label(a)}</button>
-          ))}
+        <div className="as__vert">
+          <div className="as__vcol" aria-hidden="true">
+            <div className="as__vr">
+              <span className="as__vtrack"><i className="as__vfill" /></span>
+              <ol className="as__vnums" role="list">{AGE_TICKS.map((a) => <li key={a} className={a <= vAge ? 'on' : ''} style={{ top: `${pct(a)}%` }}>{label(a)}</li>)}</ol>
+              <span className="as__vmark"><i><Mark /></i></span>
+            </div>
+          </div>
+          <ul className="as__vlist" role="list">
+            {P.map((p, i) => (
+              <li key={p.id} className={`as__cell as__cell--${p.id}${i === vAt ? ' on' : ''}`}>
+                <i className="as__fph"><Photo photo={p.photo} sizes="80vw" /></i>
+                <div className="as__fb">
+                  {p.start ? <p className="as__n"><span className="as__start">{p.no}</span></p> : null}
+                  {/* phones (Adryan, 17/11): the class name is the big line, the ages read as words under it */}
+                  <h3 className="as__name">{p.name}</h3>
+                  <p className="as__yrs"><b>{range(p)}</b><span>Years<br />old</span></p>
+                  <p className="as__txt">{p.text}</p>
+                  {p.start ? <p className="as__adv"><b>{AGE_ADV.name}.</b> {AGE_ADV.text}</p> : null}
+                  <button type="button" className="as__go" onClick={() => open({ audience: p.audience })}><span>{LP_CTA}</span><Icon name="arrow" /></button>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="as__rail" role="list" ref={rail.ref}>
-          {P.map((p, i) => (
-            <li key={p.id} className={`as__cell as__cell--${p.id}${pick !== null && progOf(pick) === i ? ' on' : ''}`}>
-              <i className="as__fph"><Photo photo={p.photo} sizes="80vw" /></i>
-              <div className="as__fb">
-                <p className="as__n">{p.start ? <span className="as__start">{p.no}</span> : <>Room {p.no} / 04</>}</p>
-                <b className="as__range">{range(p)}</b>
-                <h3 className="as__name">{p.name}</h3>
-                <p className="as__txt">{p.text}</p>
-                {p.start ? <p className="as__adv"><b>{AGE_ADV.name}.</b> {AGE_ADV.text}</p> : null}
-                <button type="button" className="as__go" onClick={() => open({ audience: p.audience })}><span>{LP_CTA}</span><Icon name="arrow" /></button>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <RailNav go={rail.go} at={rail.at} count={P.length} label="program" />
         <div className="as__fend"><Cta label={LP_CTA} /></div>
       </div>
     </section>
