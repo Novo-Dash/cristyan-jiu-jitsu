@@ -5,7 +5,9 @@ declare global { interface Window { __lenis?: Lenis | null } }
 
 /** Smooth scroll on the GSAP ticker, so ScrollTrigger and Lenis read the same frame (PRD 14). */
 export function startLenis() {
-  const lenis = new Lenis({ lerp: 0.1 })
+  // the booking form scrolls natively inside its own box: Lenis lets wheel and touch through there (it was
+  // stopped while the form is open, and a stopped Lenis swallowed the wheel: the form could not scroll, 18/11)
+  const lenis = new Lenis({ lerp: 0.1, prevent: (node) => node.classList.contains('nd-overlay') || node.classList.contains('nd-scroll') })
   window.__lenis = lenis
   lenis.on('scroll', ScrollTrigger.update)
   const tick = (t: number) => lenis.raf(t * 1000)

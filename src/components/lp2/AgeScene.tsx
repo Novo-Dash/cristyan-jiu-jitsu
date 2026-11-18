@@ -50,7 +50,9 @@ export function AgeScene() {
         const whole = Math.min(LAST, Math.floor(a + 0.0001))
         if (whole !== last) { last = whole; setAge(whole) }
         const x = pct(a)
-        mark.style.transform = `translate3d(${x}cqw,0,0)`
+        // left in %, not a cqw translate: under the ultrawide zoom (.shell zoom) Chrome scales cqw twice and the
+        // marker fell behind the count (Adryan, 18/11)
+        mark.style.left = `${x}%`
         fill.style.transform = `scaleX(${x / 100})`
       }
       const proxy = { p: 0 }
@@ -67,7 +69,7 @@ export function AgeScene() {
       let lastAge = -1, lastAt = -1
       const put = (a: number, i: number) => {
         const y = pct(a)
-        mark.style.transform = `translate3d(0,${y}cqh,0)`
+        mark.style.top = `${y}%`
         fill.style.transform = `scaleY(${y / 100})`
         const whole = Math.min(LAST, Math.floor(a + 0.0001))
         if (whole !== lastAge) { lastAge = whole; setVAge(whole) }
