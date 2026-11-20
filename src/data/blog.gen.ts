@@ -3,6 +3,77 @@ export type Block = { t: string; x: string }
 export type Post = { slug: string; title: string; desc: string; category: string; date: string; iso: string; cover: string | null; photos?: string[]; body: Block[] }
 export const POSTS: Post[] = [
  {
+  "slug": "2026-naga-boston",
+  "title": "Cristyan Jiu-Jitsu & Fitness Celebrates an Incredible Day at NAGA Boston",
+  "desc": "Cristyan Jiu-Jitsu & Fitness kids and adult athletes earned medals in Gi and No-Gi divisions at NAGA Boston.",
+  "category": "News",
+  "date": "November 20, 2026",
+  "iso": "2026-11-20",
+  "cover": "kids_2",
+  "body": [
+   {
+    "t": "p",
+    "x": "Cristyan Jiu-Jitsu & Fitness had an outstanding showing at NAGA Boston yesterday, with our kids and adult athletes earning medals and representing the academy with pride."
+   },
+   {
+    "t": "h2",
+    "x": "Kids Division Results"
+   },
+   {
+    "t": "p",
+    "x": "Our young competitors put in impressive performances across both Gi and No-Gi divisions:"
+   },
+   {
+    "t": "li",
+    "x": "Kareem Almasroori, Gold in Gi and Gold in No-Gi"
+   },
+   {
+    "t": "li",
+    "x": "Felipe Mazano, Gold in Gi and Gold in No-Gi"
+   },
+   {
+    "t": "li",
+    "x": "Aiden Weatherbee-Mulk, Gold in No-Gi and Bronze in Gi"
+   },
+   {
+    "t": "li",
+    "x": "Christian Andrade, Gold in Gi and Silver in No-Gi"
+   },
+   {
+    "t": "h2",
+    "x": "Adult Division Results"
+   },
+   {
+    "t": "p",
+    "x": "Our adult athletes also stepped onto the podium:"
+   },
+   {
+    "t": "li",
+    "x": "Mathew Andrews, Bronze in Gi"
+   },
+   {
+    "t": "li",
+    "x": "Sherman Baldwin, Bronze in Gi"
+   },
+   {
+    "t": "h2",
+    "x": "Proud of Our Team"
+   },
+   {
+    "t": "p",
+    "x": "We’re proud of every athlete who competed. Their hard work, courage, and commitment to training were on display throughout the tournament. Competing takes preparation and determination, and every match is an opportunity to learn and grow."
+   },
+   {
+    "t": "p",
+    "x": "Congratulations to Kareem, Felipe, Aiden, Christian, Mathew, and Sherman on these excellent results. Thank you to the coaches, teammates, and families who supported our athletes along the way. We’re proud to represent Cristyan Jiu-Jitsu & Fitness and look forward to what comes next."
+   },
+   {
+    "t": "p",
+    "x": "Congratulations, team!"
+   }
+  ]
+ },
+ {
   "slug": "2026-boston-fall-international-open",
   "title": "Cristyan Jiu-Jitsu & Fitness Earns Big Results at the Boston Fall International Open",
   "desc": "Cristyan Jiu-Jitsu & Fitness athletes earned medals in adult and kids divisions at the 2026 Boston Fall International Open.",
