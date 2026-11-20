@@ -10,7 +10,7 @@ export const SITE = {
   academy: 'Cristyan Brazilian Jiu-Jitsu Academy',
   legalName: 'Cristyan Brazilian Jiu-Jitsu Academy LLC',
   // [CONFIRMAR] Angela (AI Front Desk) will get her own GHL number: swap it here, it shows everywhere
-  phone: { display: '(508) 364-7697', tel: 'tel:+15083647697', e164: '+15083647697' },
+  phone: { display: '(508) 978-1611', tel: 'tel:+15089781611', e164: '+15089781611' },
   email: 'cristyanbjj@cristyanbjj.com',
   address: { street: '1513 Iyannough Rd', city: 'Hyannis', state: 'MA', zip: '02601', country: 'US', line: '1513 Iyannough Rd, Hyannis, MA 02601' },
   maps: {
@@ -229,7 +229,7 @@ export const REVIEWS = [
 // ── FAQ (current site questions, answered from the form) ──
 export const FAQ = [
   { q: 'Do I need experience?', a: 'No. Most students start with zero experience. Every program has a beginner path, and adults start in the Novice class.' },
-  { q: 'How do I get started?', a: 'Book a free trial class online or call (508) 364-7697. The trial is 60 minutes inside a regular class; we lend you a kimono, you bring a t-shirt.' },
+  { q: 'How do I get started?', a: 'Book a free trial class online or call (508) 978-1611. The trial is 60 minutes inside a regular class; we lend you a kimono, you bring a t-shirt.' },
   { q: 'Is there sparring in the trial class?', a: 'No. The trial class is technique and drills. Live training comes later, when you and your coach agree you are ready.' },
   { q: 'What programs do you offer?', a: 'Kids BJJ in four age groups (4 to 15), Adult BJJ in three levels, Women\'s Self-Defense & Fitness, Box Fitness, Capoeira and Teen & Adult Judo.' },
   { q: 'When are classes?', a: 'Monday to Friday, from 4:30 PM to 9:00 PM. Kids train first, then teens, then adults. See the full schedule for every class.' },

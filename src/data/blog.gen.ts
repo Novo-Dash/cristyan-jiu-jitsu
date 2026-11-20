@@ -473,7 +473,7 @@ export const POSTS: Post[] = [
    },
    {
     "t": "p",
-    "x": "Cristyan Brazilian Jiu-Jitsu Academy offers Kids Brazilian Jiu-Jitsu in Hyannis for families across Barnstable County. Stop by 1513 Iyannough Rd or call (508) 364-7697 to ask about getting your child started."
+    "x": "Cristyan Brazilian Jiu-Jitsu Academy offers Kids Brazilian Jiu-Jitsu in Hyannis for families across Barnstable County. Stop by 1513 Iyannough Rd or call (508) 978-1611 to ask about getting your child started."
    }
   ]
  },
@@ -713,7 +713,7 @@ export const POSTS: Post[] = [
    },
    {
     "t": "p",
-    "x": "Cristyan Brazilian Jiu-Jitsu Academy offers a Women's Self-Defense & Fitness program alongside our adult BJJ classes. Women from Hyannis, Barnstable, Yarmouth, and across Cape Cod are welcome. Call (508) 364-7697 to learn more."
+    "x": "Cristyan Brazilian Jiu-Jitsu Academy offers a Women's Self-Defense & Fitness program alongside our adult BJJ classes. Women from Hyannis, Barnstable, Yarmouth, and across Cape Cod are welcome. Call (508) 978-1611 to learn more."
    }
   ]
  },
@@ -883,7 +883,7 @@ export const POSTS: Post[] = [
    },
    {
     "t": "p",
-    "x": "Want to begin your own jiu-jitsu journey? Explore jiu-jitsu training in Hyannis at Cristyan Jiu-Jitsu & Fitness or call (508) 364-7697 to learn about training at Cristyan Jiu-Jitsu & Fitness, 1513 Iyannough Road, Hyannis, MA."
+    "x": "Want to begin your own jiu-jitsu journey? Explore jiu-jitsu training in Hyannis at Cristyan Jiu-Jitsu & Fitness or call (508) 978-1611 to learn about training at Cristyan Jiu-Jitsu & Fitness, 1513 Iyannough Road, Hyannis, MA."
    },
    {
     "t": "p",
@@ -1540,7 +1540,7 @@ export const POSTS: Post[] = [
    },
    {
     "t": "p",
-    "x": "Have questions about gear? Call Cristyan Brazilian Jiu-Jitsu Academy in Hyannis at (508) 364-7697."
+    "x": "Have questions about gear? Call Cristyan Brazilian Jiu-Jitsu Academy in Hyannis at (508) 978-1611."
    }
   ]
  },
@@ -1646,7 +1646,7 @@ export const POSTS: Post[] = [
    },
    {
     "t": "p",
-    "x": "Call (508) 364-7697 or stop by the academy to learn more about classes."
+    "x": "Call (508) 978-1611 or stop by the academy to learn more about classes."
    }
   ]
  },
