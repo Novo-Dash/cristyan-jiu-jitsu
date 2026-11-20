@@ -3,6 +3,60 @@ export type Block = { t: string; x: string }
 export type Post = { slug: string; title: string; desc: string; category: string; date: string; iso: string; cover: string | null; photos?: string[]; body: Block[] }
 export const POSTS: Post[] = [
  {
+  "slug": "eduardo-pereira-minas-gerais-state-tournament-2026",
+  "title": "Eduardo Pereira Wins Four Gold Medals at Minas Gerais State Tournament",
+  "desc": "Eduardo Pereira won four gold medals at the Minas Gerais State Tournament, taking first place in Gi and No-Gi weight and open divisions.",
+  "category": "News",
+  "date": "November 20, 2026",
+  "iso": "2026-11-20",
+  "cover": "eduardo_pereira_minas_2026",
+  "body": [
+   {
+    "t": "p",
+    "x": "Cristyan Jiu-Jitsu & Fitness is proud to congratulate Eduardo Pereira on an outstanding performance at the Minas Gerais State Tournament in Brazil."
+   },
+   {
+    "t": "h2",
+    "x": "Four Gold Medals in Gi and No-Gi"
+   },
+   {
+    "t": "p",
+    "x": "Eduardo captured four gold medals, winning both the weight division and the open class in Gi and No-Gi competition. His results reflect the discipline, preparation, and determination he brings to every match."
+   },
+   {
+    "t": "li",
+    "x": "Gi weight division, Gold"
+   },
+   {
+    "t": "li",
+    "x": "Gi open class, Gold"
+   },
+   {
+    "t": "li",
+    "x": "No-Gi weight division, Gold"
+   },
+   {
+    "t": "li",
+    "x": "No-Gi open class, Gold"
+   },
+   {
+    "t": "h2",
+    "x": "Proud of Our Team"
+   },
+   {
+    "t": "p",
+    "x": "The entire Cristyan Jiu-Jitsu & Fitness team is proud of Eduardo’s achievement. Congratulations on representing the team so well and bringing home an incredible result!"
+   },
+   {
+    "t": "p",
+    "x": "Congratulations, Eduardo! Keep training like a champion and growing like family."
+   }
+  ],
+  "photos": [
+   "eduardo_pereira_minas_2026"
+  ]
+ },
+ {
   "slug": "2026-naga-boston",
   "title": "Cristyan Jiu-Jitsu & Fitness Celebrates an Incredible Day at NAGA Boston",
   "desc": "Cristyan Jiu-Jitsu & Fitness kids and adult athletes earned medals in Gi and No-Gi divisions at NAGA Boston.",
