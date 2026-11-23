@@ -257,7 +257,8 @@ export const HERO = {
   sub: 'Brazilian Jiu-Jitsu for kids and adults, Judo, Capoeira and Box Fitness, led by Professor Cristyan Martins, 4th-degree black belt and two-time world champion.',
   photo: img('hero', 'Students and families of Cristyan Jiu-Jitsu together on the mats of the academy'),
   // the sales video (iContent) goes in the hero's second column [CONFIRMAR VSL]
-  vsl: { label: 'Video: a minute inside Cristyan Jiu-Jitsu', title: 'A minute inside the academy', note: 'Video coming soon', poster: img('mission', 'Professor Cristyan smiling on the mat with the team behind him') },
+  // the academy's video (vsl.mp4, 25 s, vertical): poster = its first second; plays on tap, with sound (23/11)
+  vsl: { label: 'Video: Professor Cristyan introduces the academy', title: 'Meet Professor Cristyan', note: 'Watch · 0:25', src: '/vsl.mp4', poster: img('vsl_poster', 'Professor Cristyan Martins in his gi on the mat, introducing the academy') },
 }
 
 // ═════════════ round 2 (Adryan's feedback, 10/11/2026) ═════════════

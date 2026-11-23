@@ -149,6 +149,13 @@ html.menu-open{overflow:hidden}
 .hc__vsl figcaption{position:absolute;left:0;right:0;bottom:0;display:grid;gap:6px;padding:18px 20px}
 .hc__vsl figcaption b{font:800 15px/1.1 var(--f-d);font-stretch:108%;text-transform:uppercase}
 .hc__vsl figcaption span{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute-d)}
+/* the facade's whole frame is the play button; once tapped the player takes the frame (23/11) */
+.hc__vbtn{position:absolute;inset:0;z-index:1;cursor:pointer}
+.hc__vbtn .hc__play{transition:transform .35s var(--spring)}
+.hc__vbtn:hover .hc__play,.hc__vbtn:focus-visible .hc__play{transform:scale(1.08)}
+.hc__vsl figcaption{pointer-events:none}
+.hc__vsl.is-on::before{display:none}
+.hc__vsl video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:var(--k)}
 /* home: the hero fades down into the black academy section, the white frame included, so there is no seam */
 .hc--home{padding-bottom:0;background:linear-gradient(180deg,var(--p) 45%,var(--k))}
 .hc--home .hc__card::before{background:linear-gradient(90deg,rgba(13,13,15,.9) 0%,rgba(13,13,15,.66) 38%,rgba(13,13,15,.12) 72%,transparent),linear-gradient(0deg,var(--k) 0,rgba(13,13,15,.7) 18%,transparent 52%)}

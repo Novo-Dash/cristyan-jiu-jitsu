@@ -1,4 +1,4 @@
-import { useRef, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { HERO, SITE } from '../../data/site'
 import type { Img } from '../../data/img'
 import { gsap, lines, useGSAP } from '../../lib/gsap'
@@ -74,17 +74,40 @@ export function Hero({ eyebrow, title, sub, photo, home, pos = '50% 45%', wide, 
               </a>
             )}
           </div>
-          {media ?? (home ? (
-            // [CONFIRMAR VSL iContent] the frame for the sales video the client is producing with iContent;
-            // the poster stands in until the file arrives, then this becomes a click-to-play facade.
-            <figure className="hc__vsl" aria-label={HERO.vsl.label}>
-              <Photo photo={HERO.vsl.poster} sizes="(max-width: 899px) 92vw, 560px" alt="" />
-              <span className="hc__play" aria-hidden="true"><i /></span>
-              <figcaption><b>{HERO.vsl.title}</b><span>{HERO.vsl.note}</span></figcaption>
-            </figure>
-          ) : null)}
+          {media ?? (home ? <Vsl /> : null)}
         </div>
       </div>
     </section>
+  )
+}
+
+/**
+ * The academy's video in the hero (home and /lp): a facade until the tap, so the 4 MB file never weighs on the
+ * first load or the LCP; the tap swaps in the player, which plays with sound and pauses when scrolled away.
+ */
+function Vsl() {
+  const [on, setOn] = useState(false)
+  const ref = useRef<HTMLVideoElement>(null)
+  useEffect(() => {
+    const v = ref.current
+    if (!on || !v) return
+    const io = new IntersectionObserver(([e]) => { if (!e.isIntersecting) v.pause() }, { threshold: 0.2 })
+    io.observe(v)
+    return () => io.disconnect()
+  }, [on])
+  return (
+    <figure className={`hc__vsl${on ? ' is-on' : ''}`} aria-label={HERO.vsl.label}>
+      {on ? (
+        <video ref={ref} src={HERO.vsl.src} poster={HERO.vsl.poster.src} controls autoPlay playsInline preload="auto" />
+      ) : (
+        <>
+          <Photo photo={HERO.vsl.poster} sizes="(max-width: 899px) 62vw, 340px" alt="" />
+          <button type="button" className="hc__vbtn" aria-label={`Play the video: ${HERO.vsl.title}`} onClick={() => setOn(true)}>
+            <span className="hc__play" aria-hidden="true"><i /></span>
+          </button>
+          <figcaption><b>{HERO.vsl.title}</b><span>{HERO.vsl.note}</span></figcaption>
+        </>
+      )}
+    </figure>
   )
 }
