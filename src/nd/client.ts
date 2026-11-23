@@ -15,11 +15,11 @@ export default {
   },
   "source": "Landing Page - Main",
   "tracking": {
-    "pixel": "",
+    "pixel": "1138325042076745",
     "ga4": "",
-    "ads": "",
-    "adsLeadLabel": "",
-    "adsBookedLabel": "",
+    "ads": "AW-10867370543",
+    "adsLeadLabel": "o7UpCPWZ8LYdEK_U-70o",
+    "adsBookedLabel": "cOOPCPiZ8LYdEK_U-70o",
     "clarity": ""
   },
   "booking": {

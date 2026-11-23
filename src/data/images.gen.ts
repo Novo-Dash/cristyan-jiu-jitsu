@@ -85,6 +85,11 @@ export const IMG = {
     "h": 1100,
     "sm": 800
   },
+  "andre_studio": {
+    "w": 832,
+    "h": 1024,
+    "sm": 480
+  },
   "jen": {
     "w": 832,
     "h": 1024,
