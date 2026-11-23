@@ -45,10 +45,18 @@
 .as__bands{position:relative;height:56px}
 .as__bands li{position:absolute;top:0;height:24px;padding-top:10px;transition:color .3s}
 .as__bands li:nth-child(even){top:30px}
-.as__bands li::before{content:"";position:absolute;left:0;right:2px;top:0;height:5px;background:var(--k-5);transition:background .3s}
+/* each program's line is a belt (Adryan, 23/11): the kids' grey, yellow and green, then blue for Junior and purple
+   for the adults, each with the black bar at its tip. The one being read stands full and thick, the rest wait faded. */
+.as__bands li{--belt:var(--k-5)}
+.as__bands li:nth-child(1){--belt:#9A9DA3}
+.as__bands li:nth-child(2){--belt:#F2C230}
+.as__bands li:nth-child(3){--belt:#2E9E5B}
+.as__bands li:nth-child(4){--belt:#2557D6}
+.as__bands li:nth-child(5){--belt:#6E3AB8}
+.as__bands li::before{content:"";position:absolute;left:0;right:2px;top:0;height:5px;background:linear-gradient(90deg,var(--belt) 0 calc(100% - 12px),var(--k) calc(100% - 12px));opacity:.45;transition:opacity .3s,height .3s,top .3s}
 .as__bands li span{display:block;width:max-content;font:700 11px/1 var(--f-b);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;color:var(--mute)}
-.as__bands li.done::before{background:var(--k)}
-.as__bands li.on::before{background:var(--r)}
+.as__bands li.done::before{opacity:1}
+.as__bands li.on::before{opacity:1;top:-2px;height:8px}
 .as__bands li.on span{color:var(--k)}
 .as__mark{position:absolute;left:0;top:0;width:0;height:46px;will-change:transform}
 .as__mark i{position:absolute;left:-19px;top:-8px;display:grid;place-items:center;width:38px;height:38px;background:var(--r-btn);color:var(--w);--mark-cut:var(--r-btn);box-shadow:0 10px 22px -10px rgba(224,27,35,.8)}
