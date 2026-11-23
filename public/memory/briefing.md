@@ -5,7 +5,7 @@ Fonte: formulário de onboarding (05/11), briefing da call, site atual cristyanb
 ## Bloqueia publicar
 - [ ] Domínio (`VITE_SITE_URL`). Sem ele o build sai `noindex`. Se for o mesmo cristyanbjj.com, as URLs antigas continuam: `/programs/*`, `/schedule`, `/instructors`, `/blog/<slug>` iguais; `/about-us` → `/about` e `/start` → `/book` por redirect 301 (vercel.json).
 - [ ] Tracking: no CRM não há Pixel, GA4, Ads nem Clarity para a Cristyan (aviso da API do kit). O formulário (kit Novo Dash, GHL `zLhtDM0iiigF8rTk2XxG`, webhook `au7IJA9pawyRVa3fAEMy`) já funciona e lista as turmas reais do GHL.
-- [ ] Telefone da Angela (AI Front Desk): hoje é (508) 364-7697. Trocar em `src/data/site.ts` (SITE.phone) e em `src/nd/client.ts` (academy.phone): aparece no site inteiro.
+- [x] Telefone da Angela (AI Front Desk) no site: (508) 978-1611, trocado em 20/11 (antes era o da academia, (508) 364-7697).
 - [ ] Política de privacidade e termos: o site atual tem `/privacy-policy` e `/terms-and-conditions`; o novo ainda não.
 
 ## Confirmar com o cliente

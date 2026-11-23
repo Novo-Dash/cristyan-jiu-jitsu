@@ -3,6 +3,131 @@ export type Block = { t: string; x: string }
 export type Post = { slug: string; title: string; desc: string; category: string; date: string; iso: string; cover: string | null; photos?: string[]; body: Block[] }
 export const POSTS: Post[] = [
  {
+  "slug": "eduardo-pereira-minas-gerais-state-tournament-2026",
+  "title": "Eduardo Pereira Wins Four Gold Medals at Minas Gerais State Tournament",
+  "desc": "Eduardo Pereira won four gold medals at the Minas Gerais State Tournament, taking first place in Gi and No-Gi weight and open divisions.",
+  "category": "News",
+  "date": "November 20, 2026",
+  "iso": "2026-11-20",
+  "cover": "eduardo_pereira_minas_2026",
+  "body": [
+   {
+    "t": "p",
+    "x": "Cristyan Jiu-Jitsu & Fitness is proud to congratulate Eduardo Pereira on an outstanding performance at the Minas Gerais State Tournament in Brazil."
+   },
+   {
+    "t": "h2",
+    "x": "Four Gold Medals in Gi and No-Gi"
+   },
+   {
+    "t": "p",
+    "x": "Eduardo captured four gold medals, winning both the weight division and the open class in Gi and No-Gi competition. His results reflect the discipline, preparation, and determination he brings to every match."
+   },
+   {
+    "t": "li",
+    "x": "Gi weight division, Gold"
+   },
+   {
+    "t": "li",
+    "x": "Gi open class, Gold"
+   },
+   {
+    "t": "li",
+    "x": "No-Gi weight division, Gold"
+   },
+   {
+    "t": "li",
+    "x": "No-Gi open class, Gold"
+   },
+   {
+    "t": "h2",
+    "x": "Proud of Our Team"
+   },
+   {
+    "t": "p",
+    "x": "The entire Cristyan Jiu-Jitsu & Fitness team is proud of Eduardo’s achievement. Congratulations on representing the team so well and bringing home an incredible result!"
+   },
+   {
+    "t": "p",
+    "x": "Congratulations, Eduardo! Keep training like a champion and growing like family."
+   }
+  ],
+  "photos": [
+   "eduardo_pereira_minas_2026"
+  ]
+ },
+ {
+  "slug": "2026-naga-boston",
+  "title": "Cristyan Jiu-Jitsu & Fitness Celebrates an Incredible Day at NAGA Boston",
+  "desc": "Cristyan Jiu-Jitsu & Fitness kids and adult athletes earned medals in Gi and No-Gi divisions at NAGA Boston.",
+  "category": "News",
+  "date": "November 20, 2026",
+  "iso": "2026-11-20",
+  "cover": "kids_2",
+  "body": [
+   {
+    "t": "p",
+    "x": "Cristyan Jiu-Jitsu & Fitness had an outstanding showing at NAGA Boston yesterday, with our kids and adult athletes earning medals and representing the academy with pride."
+   },
+   {
+    "t": "h2",
+    "x": "Kids Division Results"
+   },
+   {
+    "t": "p",
+    "x": "Our young competitors put in impressive performances across both Gi and No-Gi divisions:"
+   },
+   {
+    "t": "li",
+    "x": "Kareem Almasroori, Gold in Gi and Gold in No-Gi"
+   },
+   {
+    "t": "li",
+    "x": "Felipe Mazano, Gold in Gi and Gold in No-Gi"
+   },
+   {
+    "t": "li",
+    "x": "Aiden Weatherbee-Mulk, Gold in No-Gi and Bronze in Gi"
+   },
+   {
+    "t": "li",
+    "x": "Christian Andrade, Gold in Gi and Silver in No-Gi"
+   },
+   {
+    "t": "h2",
+    "x": "Adult Division Results"
+   },
+   {
+    "t": "p",
+    "x": "Our adult athletes also stepped onto the podium:"
+   },
+   {
+    "t": "li",
+    "x": "Mathew Andrews, Bronze in Gi"
+   },
+   {
+    "t": "li",
+    "x": "Sherman Baldwin, Bronze in Gi"
+   },
+   {
+    "t": "h2",
+    "x": "Proud of Our Team"
+   },
+   {
+    "t": "p",
+    "x": "We’re proud of every athlete who competed. Their hard work, courage, and commitment to training were on display throughout the tournament. Competing takes preparation and determination, and every match is an opportunity to learn and grow."
+   },
+   {
+    "t": "p",
+    "x": "Congratulations to Kareem, Felipe, Aiden, Christian, Mathew, and Sherman on these excellent results. Thank you to the coaches, teammates, and families who supported our athletes along the way. We’re proud to represent Cristyan Jiu-Jitsu & Fitness and look forward to what comes next."
+   },
+   {
+    "t": "p",
+    "x": "Congratulations, team!"
+   }
+  ]
+ },
+ {
   "slug": "2026-boston-fall-international-open",
   "title": "Cristyan Jiu-Jitsu & Fitness Earns Big Results at the Boston Fall International Open",
   "desc": "Cristyan Jiu-Jitsu & Fitness athletes earned medals in adult and kids divisions at the 2026 Boston Fall International Open.",
@@ -348,7 +473,7 @@ export const POSTS: Post[] = [
    },
    {
     "t": "p",
-    "x": "Cristyan Brazilian Jiu-Jitsu Academy offers Kids Brazilian Jiu-Jitsu in Hyannis for families across Barnstable County. Stop by 1513 Iyannough Rd or call (508) 364-7697 to ask about getting your child started."
+    "x": "Cristyan Brazilian Jiu-Jitsu Academy offers Kids Brazilian Jiu-Jitsu in Hyannis for families across Barnstable County. Stop by 1513 Iyannough Rd or call (508) 978-1611 to ask about getting your child started."
    }
   ]
  },
@@ -588,7 +713,7 @@ export const POSTS: Post[] = [
    },
    {
     "t": "p",
-    "x": "Cristyan Brazilian Jiu-Jitsu Academy offers a Women's Self-Defense & Fitness program alongside our adult BJJ classes. Women from Hyannis, Barnstable, Yarmouth, and across Cape Cod are welcome. Call (508) 364-7697 to learn more."
+    "x": "Cristyan Brazilian Jiu-Jitsu Academy offers a Women's Self-Defense & Fitness program alongside our adult BJJ classes. Women from Hyannis, Barnstable, Yarmouth, and across Cape Cod are welcome. Call (508) 978-1611 to learn more."
    }
   ]
  },
@@ -758,7 +883,7 @@ export const POSTS: Post[] = [
    },
    {
     "t": "p",
-    "x": "Want to begin your own jiu-jitsu journey? Explore jiu-jitsu training in Hyannis at Cristyan Jiu-Jitsu & Fitness or call (508) 364-7697 to learn about training at Cristyan Jiu-Jitsu & Fitness, 1513 Iyannough Road, Hyannis, MA."
+    "x": "Want to begin your own jiu-jitsu journey? Explore jiu-jitsu training in Hyannis at Cristyan Jiu-Jitsu & Fitness or call (508) 978-1611 to learn about training at Cristyan Jiu-Jitsu & Fitness, 1513 Iyannough Road, Hyannis, MA."
    },
    {
     "t": "p",
@@ -1415,7 +1540,7 @@ export const POSTS: Post[] = [
    },
    {
     "t": "p",
-    "x": "Have questions about gear? Call Cristyan Brazilian Jiu-Jitsu Academy in Hyannis at (508) 364-7697."
+    "x": "Have questions about gear? Call Cristyan Brazilian Jiu-Jitsu Academy in Hyannis at (508) 978-1611."
    }
   ]
  },
@@ -1521,7 +1646,7 @@ export const POSTS: Post[] = [
    },
    {
     "t": "p",
-    "x": "Call (508) 364-7697 or stop by the academy to learn more about classes."
+    "x": "Call (508) 978-1611 or stop by the academy to learn more about classes."
    }
   ]
  },

@@ -3,7 +3,7 @@
 export default {
   "academy": {
     "name": "Cristyan Jiu-Jitsu & Fitness",
-    "phone": "(508) 364-7697",
+    "phone": "(508) 978-1611",
     "address": "1513 Iyannough Rd, Hyannis, MA 02601",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query=1513%20Iyannough%20Rd%20Hyannis%20Ma%2002601",
     "logo": "/images/logo_footer.png",
