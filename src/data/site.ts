@@ -213,6 +213,7 @@ export const TEAM: Coach[] = [
   { name: 'Henrique Martins', art: 'Brazilian Jiu-Jitsu', rank: 'Blue belt', notes: [] }, // [CONFIRMAR foto]
   { name: 'Aydan Reis', art: 'Brazilian Jiu-Jitsu', rank: 'Blue belt', notes: [] }, // [CONFIRMAR foto]
   { name: 'Jhenifer Doxsey', art: 'Capoeira', notes: ['Training Capoeira since 1992, with Team ABADA Capoeira, later A Capoeira'], photo: img('jen', 'Capoeira instructor Jhenifer Doxsey') },
+  { name: 'André Lima', art: 'Capoeira', notes: [], photo: img('andre', 'Capoeira instructor André Lima') }, // novo, Cristyan no WhatsApp em 20/11
   { name: 'Buster Donalson', art: 'Box Fitness', notes: ['Teaching boxing fitness for over a decade', 'Certified in 2014 by Grandmaster Keith Rosary'], photo: img('buster', 'Box Fitness instructor Buster Donalson') },
 ]
 
