@@ -81,7 +81,7 @@ export function Footer() {
       </div>
       <div className="shell foot__base">
         <p>© 2026 {SITE.legalName}</p>
-        <p>Website by <a href="https://novodash.com" target="_blank" rel="noopener">Novo Dash</a></p>
+        <p>Website by <a href="https://lp.novodash.com/site?utm_source=cristyan-jiu-jitsu&utm_medium=referral&utm_campaign=lp-footer" target="_blank" rel="noopener">Novo Dash</a></p>
       </div>
     </footer>
   )
